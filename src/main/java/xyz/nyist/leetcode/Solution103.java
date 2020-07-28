@@ -3,7 +3,9 @@ package xyz.nyist.leetcode;
 import xyz.nyist.utils.TreeNode;
 import xyz.nyist.utils.TreeOperation;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * @author fucong
@@ -31,9 +33,11 @@ import java.util.*;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution103 {
+    List<List<Integer>> lists = new ArrayList<>();
+
     public static void main(String[] args) {
         Solution103 solution103 = new Solution103();
-        System.out.println(solution103.zigzagLevelOrder(TreeOperation.createTree("[3,9,20,1,2,15,7]")));
+        System.out.println(solution103.zigzagLevelOrder(TreeOperation.createTree("[0,2,4,1,7,3,-1,5,1,9,6,4,8,6,2]")));
     }
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -44,32 +48,32 @@ public class Solution103 {
         }
         boolean b = false;
         Stack<TreeNode> stack = new Stack<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!stack.isEmpty() || !queue.isEmpty()) {
+        Stack<TreeNode> stack1 = new Stack<>();
+        stack.add(root);
+        while (!stack.isEmpty() || !stack1.isEmpty()) {
             List<Integer> list = new ArrayList<>();
             if (b) {
-                while (!stack.isEmpty()) {
-                    TreeNode treeNode = stack.pop();
+                while (!stack1.isEmpty()) {
+                    TreeNode treeNode = stack1.pop();
                     list.add(treeNode.val);
-                    if (treeNode.left != null) {
-                        queue.add(treeNode.left);
-                    }
                     if (treeNode.right != null) {
-                        queue.add(treeNode.right);
+                        stack.add(treeNode.right);
+                    }
+                    if (treeNode.left != null) {
+                        stack.add(treeNode.left);
                     }
                 }
                 b = false;
             }
             else {
-                while (!queue.isEmpty()) {
-                    TreeNode treeNode = queue.poll();
+                while (!stack.isEmpty()) {
+                    TreeNode treeNode = stack.pop();
                     list.add(treeNode.val);
                     if (treeNode.left != null) {
-                        stack.add(treeNode.left);
+                        stack1.add(treeNode.left);
                     }
                     if (treeNode.right != null) {
-                        stack.add(treeNode.right);
+                        stack1.add(treeNode.right);
                     }
                 }
                 b = true;
@@ -78,4 +82,5 @@ public class Solution103 {
         }
         return lists;
     }
+    
 }
