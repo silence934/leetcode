@@ -33,7 +33,6 @@ import java.util.Stack;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution103 {
-    List<List<Integer>> lists = new ArrayList<>();
 
     public static void main(String[] args) {
         Solution103 solution103 = new Solution103();
@@ -82,5 +81,5 @@ public class Solution103 {
         }
         return lists;
     }
-    
+
 }
