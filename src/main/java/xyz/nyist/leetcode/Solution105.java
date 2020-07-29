@@ -63,6 +63,9 @@ public class Solution105 {
     }
 
     public TreeNode buildTree1(int[] preorder, int[] inorder) {
+        if (preorder.length < 1 || inorder.length < 1) {
+            return null;
+        }
         int index = 0;
         TreeNode root = new TreeNode(preorder[0]);
         Stack<TreeNode> stack = new Stack<>();
@@ -72,12 +75,16 @@ public class Solution105 {
                 TreeNode treeNode = new TreeNode(preorder[i]);
                 stack.peek().left = treeNode;
                 stack.add(treeNode);
+                continue;
             }
+            TreeNode pre = null;
             while (!stack.isEmpty() && stack.peek().val == inorder[index]) {
-                stack.pop();
+                pre = stack.pop();
+                index++;
             }
             TreeNode treeNode = new TreeNode(preorder[i]);
-            stack.pop().right = treeNode;
+            assert pre != null;
+            pre.right = treeNode;
             stack.add(treeNode);
         }
 
