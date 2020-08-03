@@ -1,6 +1,11 @@
 package xyz.nyist.leetcode;
 
 
+import xyz.nyist.utils.TreeNode;
+import xyz.nyist.utils.TreeOperation;
+
+import java.util.Stack;
+
 /**
  * @Author: silence
  * @Description: 给定一个二叉树，原地将它展开为一个单链表。
@@ -34,65 +39,36 @@ package xyz.nyist.leetcode;
  * @Date:Create：in 2020/8/3 0:15
  */
 public class Solution117 {
-    TreeNode pre = null;
 
     public static void main(String[] args) {
         Solution117 solution116 = new Solution117();
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node3 = new TreeNode(3);
-        TreeNode node4 = new TreeNode(4);
-        TreeNode node5 = new TreeNode(5);
-        TreeNode node6 = new TreeNode(6);
-        TreeNode node7 = new TreeNode(7);
-        node1.left = node2;
-        node1.right = node3;
-        node2.left = node4;
-        node1.right = node5;
-        node3.left = node6;
-        node3.right = node7;
-        solution116.flatten(node1);
+        TreeNode root = TreeOperation.createTree("[1,2,5,3,4,null,6]");
+        TreeOperation.show(root);
+        solution116.flatten(root);
+        TreeOperation.show(root);
     }
 
     public void flatten(TreeNode root) {
         if (root == null) {
             return;
         }
-        if (pre != null) {
-            pre.next = root;
-        }
-        pre = root;
-        flatten(root.left);
-        flatten(root.right);
-    }
-
-
-    private static class TreeNode {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode next;
-
-        public TreeNode() {
-        }
-
-        public TreeNode(int _val) {
-            val = _val;
-        }
-
-        public TreeNode(int _val, TreeNode _left, TreeNode _right, TreeNode _next) {
-            val = _val;
-            left = _left;
-            right = _right;
-            next = _next;
-        }
-
-        @Override
-        public String toString() {
-            return "TreeNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        TreeNode pre = null;
+        while (!stack.isEmpty()) {
+            TreeNode treeNode = stack.pop();
+            if (treeNode.right != null) {
+                stack.add(treeNode.right);
+            }
+            if (treeNode.left != null) {
+                stack.add(treeNode.left);
+            }
+            if (pre != null) {
+                pre.left = null;
+                pre.right = treeNode;
+            }
+            pre = treeNode;
         }
     }
+
 }

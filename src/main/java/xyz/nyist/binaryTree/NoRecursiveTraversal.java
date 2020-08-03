@@ -3,8 +3,6 @@ package xyz.nyist.binaryTree;
 import xyz.nyist.utils.TreeNode;
 import xyz.nyist.utils.TreeOperation;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -18,6 +16,9 @@ public class NoRecursiveTraversal {
         System.out.println("前序遍历:");
         preTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
         System.out.println();
+        System.out.println("前序遍历1:");
+        preTraversal1(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        System.out.println();
         System.out.println("中序遍历:");
         inorderTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
         System.out.println();
@@ -26,17 +27,37 @@ public class NoRecursiveTraversal {
     }
 
     private static void preTraversal(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            TreeNode temp = queue.poll();
-            System.out.print(temp.val + " ");
-            if (temp.left != null) {
-                queue.add(temp.left);
+        TreeOperation.show(root);
+        TreeNode temp = root;
+        Stack<TreeNode> stack = new Stack<>();
+        while (temp != null || !stack.isEmpty()) {
+            while (temp != null) {
+                System.out.print(temp.val + " ");
+                stack.add(temp);
+                temp = temp.left;
             }
+            temp = stack.pop();
             if (temp.right != null) {
-                queue.add(temp.right);
+                temp = temp.right;
             }
+            else {
+                temp = null;
+            }
+        }
+    }
+
+    private static void preTraversal1(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            TreeNode temp = stack.pop();
+            if (temp.right != null) {
+                stack.add(temp.right);
+            }
+            if (temp.left != null) {
+                stack.add(temp.left);
+            }
+            System.out.print(temp.val + " ");
         }
     }
 
