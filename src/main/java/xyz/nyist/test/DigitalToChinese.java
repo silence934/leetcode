@@ -1,13 +1,13 @@
-package xyz.nyist.arithmetic;
+package xyz.nyist.test;
 
 /**
  * @author fucong
  * @date 2020-07-31 15:16
- * @description
+ * @description 数字转中文
  */
-public class Test {
+public class DigitalToChinese {
     public static void main(String[] args) throws Exception {
-        String s = "2000000";
+        String s = "123456700035131658416841351684";
         String[] units = new String[]{"", "拾", "百", "千", "万", "亿", "兆", "京", "垓", "秭", "穰", "沟", "涧", "正", "载"};
         int index = 0, k = 4;
         char[] sa = s.toCharArray();
@@ -39,37 +39,73 @@ public class Test {
                 }
             }
         }
-        System.out.println(sb.toString());
         char[] a = sb.toString().toCharArray();
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] == '0' && a[i - 1] == '0') {
+                a[i] = '#';
+            }
         }
+        String str = new String(a);
+        a = str.replaceAll("#", "").toCharArray();
+        boolean b = true;
+        for (int i = 0; i < a.length; i++) {
+            if (b) {
+                if (a[i] == '0') {
+                    a[i] = '#';
+                    continue;
+                }
+                else {
+                    b = false;
+                }
+            }
+            if (isNumber(a[i])) {
+                if (a[i] == '0') {
+                    if (i < a.length - 1 && !isNumber(a[i - 1]) && !isNumber(a[i + 1])) {
+                        a[i] = '#';
+                    }
+                    else {
+                        a[i] = transition(a[i]);
+                    }
+                }
+                else {
+                    a[i] = transition(a[i]);
+                }
+            }
+        }
+
+        str = new String(a);
+        sb = new StringBuilder(str.replaceAll("#", ""));
         System.out.println(sb.reverse().toString());
     }
 
-    public static String transition(char c) {
+    private static boolean isNumber(char c) {
+        return c >= '0' && c <= '9';
+    }
+
+    public static char transition(char c) {
         switch (c) {
             case '1':
-                return "一";
+                return '一';
             case '2':
-                return "二";
+                return '二';
             case '3':
-                return "三";
+                return '三';
             case '4':
-                return "四";
+                return '四';
             case '5':
-                return "五";
+                return '五';
             case '6':
-                return "六";
+                return '六';
             case '7':
-                return "七";
+                return '七';
             case '8':
-                return "八";
+                return '八';
             case '9':
-                return "九";
+                return '九';
             case '0':
-                return "零";
+                return '零';
             default:
-                return "";
+                return ' ';
         }
     }
 
