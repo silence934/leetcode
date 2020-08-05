@@ -7,7 +7,7 @@ package xyz.nyist.test;
  */
 public class DigitalToChinese {
     public static void main(String[] args) throws Exception {
-        String s = "123456700035131658416841351684";
+        String s = "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999";
         String[] units = new String[]{"", "拾", "百", "千", "万", "亿", "兆", "京", "垓", "秭", "穰", "沟", "涧", "正", "载"};
         int index = 0, k = 4;
         char[] sa = s.toCharArray();

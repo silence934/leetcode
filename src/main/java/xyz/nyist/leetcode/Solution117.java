@@ -25,14 +25,17 @@ public class Solution117 {
     }
 
     public Node connect(Node root) {
-        Node left = root;
-        while (left != null) {
-            Node next = left, pre = null;
+        Node layer = root;
+        while (layer != null) {
+            Node next = layer, pre = null;
+            layer = null;
             while (next != null) {
                 if (next.left != null && next.right != null) {
-                    if (left == next) {
-                        left = next.left;
+                    //设置下一层
+                    if (layer == null) {
+                        layer = next.left;
                     }
+                    //设置前驱节点
                     if (pre != null) {
                         pre.next = next.left;
                     }
@@ -40,8 +43,8 @@ public class Solution117 {
                     pre = next.right;
                 }
                 else if (next.left != null) {
-                    if (left == next) {
-                        left = next.left;
+                    if (layer == null) {
+                        layer = next.left;
                     }
                     if (pre != null) {
                         pre.next = next.left;
@@ -49,8 +52,8 @@ public class Solution117 {
                     pre = next.left;
                 }
                 else if (next.right != null) {
-                    if (left == next) {
-                        left = next.right;
+                    if (layer == null) {
+                        layer = next.right;
                     }
                     if (pre != null) {
                         pre.next = next.right;
