@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode;
 
-import xyz.nyist.arithmetic.TreeOperation;
-import xyz.nyist.entity.TreeNode;
+import xyz.nyist.utils.TreeNode;
+import xyz.nyist.utils.TreeOperation;
 
 import java.util.Stack;
 
@@ -89,8 +89,8 @@ public class Solution {
         System.arraycopy(inorder, k + 1, right, 0, inorder.length - k - 1);
         TreeNode treeNode1 = buildTree(preorder, left);
         TreeNode treeNode2 = buildTree(preorder, right);
-        root.setLeft(treeNode1);
-        root.setRight(treeNode2);
+        root.left = (treeNode1);
+        root.right = (treeNode2);
         return root;
     }
 

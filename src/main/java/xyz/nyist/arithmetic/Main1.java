@@ -1,6 +1,7 @@
 package xyz.nyist.arithmetic;
 
-import xyz.nyist.entity.TreeNode;
+import xyz.nyist.utils.TreeNode;
+import xyz.nyist.utils.TreeOperation;
 
 import java.util.Arrays;
 
@@ -43,10 +44,10 @@ public class Main1 {
         System.arraycopy(in, 0, left, 0, k);
         System.arraycopy(in, k + 1, right, 0, in.length - k - 1);
         if (left.length > 0) {
-            treeNode.setLeft(reConstructBinaryTree(pre, left));
+            treeNode.left = reConstructBinaryTree(pre, left);
         }
         if (right.length > 0) {
-            treeNode.setRight(reConstructBinaryTree(pre, right));
+            treeNode.right = reConstructBinaryTree(pre, right);
         }
         return treeNode;
     }
@@ -60,9 +61,9 @@ public class Main1 {
         for (int i = 0; i < in.length; i++) {
             if (in[i] == pre[0]) {
                 // 左子树，注意 copyOfRange 函数，左闭右开
-                root.setLeft(reConstructBinaryTree1(Arrays.copyOfRange(pre, 1, i + 1), Arrays.copyOfRange(in, 0, i)));
+                root.left = (reConstructBinaryTree1(Arrays.copyOfRange(pre, 1, i + 1), Arrays.copyOfRange(in, 0, i)));
                 // 右子树，注意 copyOfRange 函数，左闭右开
-                root.setRight(reConstructBinaryTree1(Arrays.copyOfRange(pre, i + 1, pre.length), Arrays.copyOfRange(in, i + 1, in.length)));
+                root.right = (reConstructBinaryTree1(Arrays.copyOfRange(pre, i + 1, pre.length), Arrays.copyOfRange(in, i + 1, in.length)));
                 break;
             }
         }
@@ -70,13 +71,13 @@ public class Main1 {
     }
 
     public static void print(TreeNode root) {
-        if (root.getLeft() != null) {
-            print(root.getLeft());
+        if (root.left != null) {
+            print(root.left);
         }
-        if (root.getRight() != null) {
-            print(root.getRight());
+        if (root.right != null) {
+            print(root.right);
         }
-        System.out.print(root.getVal() + " ,");
+        System.out.print(root.val + " ,");
 
     }
 

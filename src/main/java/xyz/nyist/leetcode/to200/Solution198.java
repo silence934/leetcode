@@ -1,5 +1,7 @@
 package xyz.nyist.leetcode.to200;
 
+import java.util.Arrays;
+
 /**
  * @Author : fucong
  * @Date: 2020-08-15 18:52
@@ -28,9 +30,12 @@ package xyz.nyist.leetcode.to200;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution198 {
+
+    int[] memo;
+
     public static void main(String[] args) {
         Solution198 solution198 = new Solution198();
-        System.out.println(solution198.rob1(new int[]{1, 2, 3, 1}));
+        System.out.println(solution198.rob3(new int[]{1, 2, 3, 1}));
     }
 
     public int rob(int[] nums) {
@@ -68,5 +73,33 @@ public class Solution198 {
             dp[i] = Math.max(Math.max(nums[i] + dp[i - 2], dp[i - 1]), nums[i] + dp[i - 2]);
         }
         return Math.max(dp[length - 1], dp[length - 2]);
+    }
+
+    public int rob2(int[] nums) {
+        memo = new int[nums.length];
+        Arrays.fill(memo, -1);
+        return test(0, nums);
+    }
+
+    public int test(int start, int[] nums) {
+        if (start >= nums.length) {
+            return 0;
+        }
+        if (memo[start] != -1) {
+            return memo[start];
+        }
+        int res = Math.max(nums[start] + test(start + 2, nums), test(start + 1, nums));
+        memo[start] = res;
+        return res;
+    }
+
+    public int rob3(int[] nums) {
+        int m = 0, n = 0, j = 0;
+        for (int num : nums) {
+            j = Math.max(m + num, n);
+            m = n;
+            n = j;
+        }
+        return j;
     }
 }
