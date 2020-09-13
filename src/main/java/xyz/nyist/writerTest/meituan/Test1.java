@@ -1,4 +1,4 @@
-package xyz.nyist.writerTest.meiTuan;
+package xyz.nyist.writerTest.meituan;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
