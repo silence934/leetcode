@@ -29,7 +29,7 @@ public class Solution887 {
 
     public static void main(String[] args) {
         Solution887 solution887 = new Solution887();
-        System.out.println(solution887.superEggDrop(4, 100));
+        System.out.println(solution887.superEggDrop1(4, 100));
     }
 
     public int superEggDrop(int K, int N) {
@@ -86,4 +86,16 @@ public class Solution887 {
         }
     }
 
+    public int superEggDrop1(int K, int N) {
+        int[][] dp = new int[K + 1][N + 1];
+
+        int m = 0;
+        while (dp[K][m] < N) {
+            m++;
+            for (int i = 1; i < K + 1; i++) {
+                dp[i][m] = dp[i - 1][m - 1] + dp[i][m - 1] + 1;
+            }
+        }
+        return m;
+    }
 }
