@@ -41,13 +41,11 @@ public class Solution416 {
             dp[i][0] = true;
         }
         for (int i = 1; i < nums.length + 1; i++) {
-            for (int j = 1; j <= sum; j++) {
-                if (j - nums[i - 1] < 0) {
-                    // 背包容量不足，不能装入第 i 个物品
+            for (int j = 1; j < sum + 1; j++) {
+                if (nums[i - 1] > j) {
                     dp[i][j] = dp[i - 1][j];
                 }
                 else {
-                    // 装入或不装入背包
                     dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
                 }
             }
