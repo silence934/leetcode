@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -35,7 +35,7 @@ public class Solution119 {
 
     public static void main(String[] args) {
         Solution119 solution119 = new Solution119();
-        System.out.println(solution119.sumNumbers(TreeOperation.createTree("[4,9,0,5,1]")));
+        System.out.println(solution119.sumNumbers(TreeUtil.createTree("[4,9,0,5,1]")));
     }
 
     public int sumNumbers(TreeNode root) {

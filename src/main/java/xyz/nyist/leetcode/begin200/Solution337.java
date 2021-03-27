@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin200;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +37,7 @@ public class Solution337 {
 
     public static void main(String[] args) {
         Solution337 solution337 = new Solution337();
-        System.out.println(solution337.rob(TreeOperation.createTree("[3,4,5,1,3,null,1]")));
+        System.out.println(solution337.rob(TreeUtil.createTree("[3,4,5,1,3,null,1]")));
     }
 
     public int rob(TreeNode root) {

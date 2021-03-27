@@ -2,7 +2,7 @@ package xyz.nyist.leetcode.begin000;
 
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Stack;
 
@@ -42,10 +42,10 @@ public class Solution114 {
 
     public static void main(String[] args) {
         Solution114 solution114 = new Solution114();
-        TreeNode root = TreeOperation.createTree("[1,2,5,3,4,null,6]");
-        TreeOperation.show(root);
+        TreeNode root = TreeUtil.createTree("[1,2,5,3,4,null,6]");
+        TreeUtil.show(root);
         solution114.flatten(root);
-        TreeOperation.show(root);
+        TreeUtil.show(root);
     }
 
     public void flatten(TreeNode root) {

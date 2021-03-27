@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -73,7 +73,7 @@ public class Solution124 {
         treeNode021.left = treeNode161;
         treeNode021.right = treeNode162;
         treeNode161.left = treeNode163;
-        TreeOperation.show(treeNode09);
+        TreeUtil.show(treeNode09);
         System.out.println(solution124.maxPathSum(treeNode09));
 
 

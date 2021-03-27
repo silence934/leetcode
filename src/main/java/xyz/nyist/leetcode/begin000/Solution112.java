@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -29,11 +29,11 @@ import xyz.nyist.utils.TreeOperation;
 public class Solution112 {
     public static void main(String[] args) {
         Solution112 solution112 = new Solution112();
-        System.out.println(solution112.hasPathSum(TreeOperation.createTree("1,2"), 1));
+        System.out.println(solution112.hasPathSum(TreeUtil.createTree("1,2"), 1));
     }
 
     public boolean hasPathSum(TreeNode root, int sum) {
-        TreeOperation.show(root);
+        TreeUtil.show(root);
         if (root == null) {
             return false;
         }

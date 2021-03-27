@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Stack;
 
@@ -72,7 +72,7 @@ public class Solution173 {
     }
 
     public static void main(String[] args) {
-        Solution173 solution173 = new Solution173(TreeOperation.createTree("1"));
+        Solution173 solution173 = new Solution173(TreeUtil.createTree("1"));
         System.out.println(solution173.hasNext());
     }
 }

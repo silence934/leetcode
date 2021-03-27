@@ -9,7 +9,7 @@ import java.util.Queue;
  * @Description:
  * @Date:Create：in 2020/4/26 17:50
  */
-public class TreeOperation {
+public class TreeUtil {
     // 用于获得树的层数
     public static int getTreeDepth(TreeNode root) {
         return root == null ? 0 : (1 + Math.max(getTreeDepth(root.left), getTreeDepth(root.right)));

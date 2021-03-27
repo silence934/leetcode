@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import java.util.List;
 public class Solution113 {
     public static void main(String[] args) {
         Solution113 solution113 = new Solution113();
-        System.out.println(solution113.pathSum(TreeOperation.createTree("[5,4,8,11,null,13,4,7,2,null,null,5,1]"), 22));
+        System.out.println(solution113.pathSum(TreeUtil.createTree("[5,4,8,11,null,13,4,7,2,null,null,5,1]"), 22));
     }
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {

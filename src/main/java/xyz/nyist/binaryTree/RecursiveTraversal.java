@@ -1,7 +1,7 @@
 package xyz.nyist.binaryTree;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -10,17 +10,17 @@ import xyz.nyist.utils.TreeOperation;
  */
 public class RecursiveTraversal {
     public static void main(String[] args) {
-        TreeOperation.show(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        TreeUtil.show(TreeUtil.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
         System.out.println("前序遍历:");
-        preTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        preTraversal(TreeUtil.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
         System.out.println();
         System.out.println("中序遍历:");
-        inorderTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        inorderTraversal(TreeUtil.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
         System.out.println();
         System.out.println("后序遍历:");
-        postTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        postTraversal(TreeUtil.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
     }
-   
+
 
     private static void preTraversal(TreeNode root) {
         if (root == null) {

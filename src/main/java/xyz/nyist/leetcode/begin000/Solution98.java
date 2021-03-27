@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -53,6 +53,6 @@ public class Solution98 {
 
     public static void main(String[] args) {
         Solution98 solution98 = new Solution98();
-        System.out.println(solution98.isValidBST(TreeOperation.createTree("[3,null,30,10,null,null,15,null,45]")));
+        System.out.println(solution98.isValidBST(TreeUtil.createTree("[3,null,30,10,null,null,15,null,45]")));
     }
 }

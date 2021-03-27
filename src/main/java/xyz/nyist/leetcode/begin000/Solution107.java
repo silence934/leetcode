@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -36,7 +36,7 @@ import java.util.Queue;
 public class Solution107 {
     public static void main(String[] args) {
         Solution107 solution107 = new Solution107();
-        System.out.println(solution107.levelOrderBottom(TreeOperation.createTree("3,9,20,null,null,15,7")));
+        System.out.println(solution107.levelOrderBottom(TreeUtil.createTree("3,9,20,null,null,15,7")));
     }
 
     public List<List<Integer>> levelOrderBottom(TreeNode root) {

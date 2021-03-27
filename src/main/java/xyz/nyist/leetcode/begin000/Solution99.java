@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @author fucong
@@ -58,10 +58,10 @@ public class Solution99 {
 
     public static void main(String[] args) {
         Solution99 solution99 = new Solution99();
-        TreeNode root = TreeOperation.createTree("[10,5,15,0,8,13,20,2,-5,6,9,12,14,18,25]");
-        TreeOperation.show(root);
+        TreeNode root = TreeUtil.createTree("[10,5,15,0,8,13,20,2,-5,6,9,12,14,18,25]");
+        TreeUtil.show(root);
         solution99.recoverTree1(root);
-        TreeOperation.show(root);
+        TreeUtil.show(root);
     }
 
     public void recoverTree(TreeNode root) {

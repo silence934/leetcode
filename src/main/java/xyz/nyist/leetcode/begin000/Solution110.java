@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -104,7 +104,7 @@ public class Solution110 {
         treeNode8.left = treeNode14;
         treeNode8.right = treeNode15;
 
-        TreeOperation.show(treeNode1);
+        TreeUtil.show(treeNode1);
 
         System.out.println(solution110.isBalanced1(treeNode1));
     }

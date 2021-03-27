@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin200;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -29,7 +29,7 @@ import xyz.nyist.utils.TreeOperation;
 public class Solution236 {
     public static void main(String[] args) {
         Solution236 solution236 = new Solution236();
-        System.out.println(solution236.lowestCommonAncestor(TreeOperation.createTree("[3,5,1,6,2,0,8,null,null,7,4]"), new TreeNode(5), new TreeNode(1)));
+        System.out.println(solution236.lowestCommonAncestor(TreeUtil.createTree("[3,5,1,6,2,0,8,null,null,7,4]"), new TreeNode(5), new TreeNode(1)));
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -45,8 +45,7 @@ public class Solution236 {
 
         if (left == null) {
             return right;
-        }
-        else if (right == null) {
+        } else if (right == null) {
             return left;
         }
         return root;

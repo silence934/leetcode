@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Stack;
 
@@ -33,7 +33,7 @@ public class Solution106 {
     public static void main(String[] args) {
         Solution106 solution106 = new Solution106();
         TreeNode treeNode = solution106.buildTree(new int[]{9, 3, 15, 20, 7}, new int[]{9, 15, 7, 20, 3});
-        TreeOperation.show(treeNode);
+        TreeUtil.show(treeNode);
     }
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {

@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,11 @@ import java.util.Stack;
 public class Solution145 {
     public static void main(String[] args) {
         Solution145 solution145 = new Solution145();
-        System.out.println(solution145.postorderTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]")));
+        System.out.println(solution145.postorderTraversal(TreeUtil.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]")));
     }
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        TreeOperation.show(root);
+        TreeUtil.show(root);
         List<Integer> list = new ArrayList<>();
         if (root == null) {
             return list;

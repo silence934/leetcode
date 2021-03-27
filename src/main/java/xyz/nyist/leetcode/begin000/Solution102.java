@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.*;
 
@@ -41,6 +41,6 @@ public class Solution102 {
 
     public static void main(String[] args) {
         Solution102 solution102 = new Solution102();
-        System.out.println(solution102.levelOrder(TreeOperation.createTree("[0,2,4,1,null,3,-1,5,1,null,6,null,8]")));
+        System.out.println(solution102.levelOrder(TreeUtil.createTree("[0,2,4,1,null,3,-1,5,1,null,6,null,8]")));
     }
 }

@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 /**
  * @Author: silence
@@ -33,7 +33,7 @@ public class Solution111 {
 
     public static void main(String[] args) {
         Solution111 solution111 = new Solution111();
-        System.out.println(solution111.minDepth(TreeOperation.createTree("3,9,20,null,null,15,7")));
+        System.out.println(solution111.minDepth(TreeUtil.createTree("3,9,20,null,null,15,7")));
     }
 
     public int minDepth(TreeNode root) {

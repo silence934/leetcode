@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.*;
 
@@ -71,8 +71,8 @@ public class Solution101 {
 
     public static void main(String[] args) {
         Solution101 solution102 = new Solution101();
-        TreeNode treeNode = TreeOperation.createTree("[2,3,3,4,5,null,4]");
-        TreeOperation.show(treeNode);
+        TreeNode treeNode = TreeUtil.createTree("[2,3,3,4,5,null,4]");
+        TreeUtil.show(treeNode);
         System.out.println(solution102.isSymmetric1(treeNode));
     }
 

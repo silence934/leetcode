@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +36,11 @@ public class Solution103 {
 
     public static void main(String[] args) {
         Solution103 solution103 = new Solution103();
-        System.out.println(solution103.zigzagLevelOrder(TreeOperation.createTree("[0,2,4,1,7,3,-1,5,1,9,6,4,8,6,2]")));
+        System.out.println(solution103.zigzagLevelOrder(TreeUtil.createTree("[0,2,4,1,7,3,-1,5,1,9,6,4,8,6,2]")));
     }
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        TreeOperation.show(root);
+        TreeUtil.show(root);
         List<List<Integer>> lists = new ArrayList<>();
         if (root == null) {
             return lists;
