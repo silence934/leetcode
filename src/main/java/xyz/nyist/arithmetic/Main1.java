@@ -1,7 +1,7 @@
 package xyz.nyist.arithmetic;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Arrays;
 
@@ -20,7 +20,7 @@ public class Main1 {
         int[] in = new int[]{2, 1, 4, 3, 5};
         TreeNode treeNode = reConstructBinaryTree(pre, in);
         //System.out.println(treeNode);
-        TreeOperation.show(treeNode);
+        TreeUtil.show(treeNode);
 
         //System.out.println(reConstructBinaryTree1(pre, in));
         //print(treeNode);

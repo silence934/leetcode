@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Stack;
 
@@ -31,8 +31,7 @@ public class Solution {
             for (int j = 0; j < n; j++) {
                 if (ints[j] == target) {
                     return true;
-                }
-                else if (ints[j] > target) {
+                } else if (ints[j] > target) {
                     break;
                 }
             }
@@ -107,7 +106,7 @@ public class Solution {
         int[] in = new int[]{7, 3, 8, 1, 9, 4, 0, 5, 2, 6};
         TreeNode treeNode = solution.buildTree(pre, in);
         //System.out.println(treeNode);
-        TreeOperation.show(treeNode);
+        TreeUtil.show(treeNode);
 
     }
 }

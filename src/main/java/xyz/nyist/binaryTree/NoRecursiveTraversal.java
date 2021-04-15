@@ -1,7 +1,7 @@
 package xyz.nyist.binaryTree;
 
 import xyz.nyist.utils.TreeNode;
-import xyz.nyist.utils.TreeOperation;
+import xyz.nyist.utils.TreeUtil;
 
 import java.util.Stack;
 
@@ -13,21 +13,22 @@ import java.util.Stack;
 public class NoRecursiveTraversal {
 
     public static void main(String[] args) {
+        TreeNode tree = TreeUtil.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]");
+        TreeUtil.show(tree);
         System.out.println("前序遍历:");
-        preTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        preTraversal(tree);
         System.out.println();
         System.out.println("前序遍历1:");
-        preTraversal1(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        preTraversal1(tree);
         System.out.println();
         System.out.println("中序遍历:");
-        inorderTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        inorderTraversal(tree);
         System.out.println();
         System.out.println("后序遍历:");
-        postTraversal(TreeOperation.createTree("[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"));
+        postTraversal(tree);
     }
 
     private static void preTraversal(TreeNode root) {
-        TreeOperation.show(root);
         TreeNode temp = root;
         Stack<TreeNode> stack = new Stack<>();
         while (temp != null || !stack.isEmpty()) {
@@ -39,8 +40,7 @@ public class NoRecursiveTraversal {
             temp = stack.pop();
             if (temp.right != null) {
                 temp = temp.right;
-            }
-            else {
+            } else {
                 temp = null;
             }
         }
@@ -73,8 +73,7 @@ public class NoRecursiveTraversal {
             System.out.print(temp.val + " ");
             if (temp.right != null) {
                 temp = temp.right;
-            }
-            else {
+            } else {
                 temp = null;
             }
         }
@@ -92,8 +91,7 @@ public class NoRecursiveTraversal {
             if (temp.right != null && temp.right.val != per.val) {
                 //顶元素是否存在右孩子，如果存在并且没有被访问
                 temp = temp.right;
-            }
-            else {
+            } else {
                 per = stack.pop();
                 System.out.print(per.val + " ");
                 temp = null;
