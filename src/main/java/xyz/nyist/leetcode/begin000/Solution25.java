@@ -27,6 +27,37 @@ import xyz.nyist.utils.ListNode;
  */
 public class Solution25 {
 
+    public ListNode reverseKGroup1(ListNode head, int k) {
+
+        ListNode b = head;
+        int t = 1;
+        while (t++ < k) {
+            if (b == null) {
+                return head;
+            }
+            b = b.next;
+        }
+        if (b == null) {
+            return head;
+        }
+        ListNode node = reverseKGroup1(b.next, k);
+        b.next = null;
+        reverse(head);
+        head.next = node;
+        return b;
+    }
+
+    public ListNode reverse(ListNode head) {
+        if (head.next == null) {
+            return head;
+        }
+        ListNode last = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
+
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode p = head;
         int l = 0;
@@ -86,6 +117,6 @@ public class Solution25 {
         listNode3.next = listNode4;
         System.out.println(head);
         Solution25 solution25 = new Solution25();
-        System.out.println(solution25.reverseKGroup(head, 2));
+        System.out.println(solution25.reverseKGroup1(head, 2));
     }
 }
