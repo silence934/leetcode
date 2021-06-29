@@ -1,4 +1,4 @@
-package xyz.nyist.byteDance;
+package xyz.nyist.writerTest.byteDance;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @Description:
  * @Date:Create：in 2020/7/17 20:26
  */
-public class Main4 {
+public class Main5 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -30,14 +30,7 @@ public class Main4 {
                         System.out.println("Yes");
                     }
                     else {
-                        t -= c / 2;
-                        if (t > b / 3) {
-                            System.out.println("No");
-                        }
-                        else {
-                            System.out.println("Yes");
-                        }
-
+                        System.out.println("No");
                     }
                 }
             }

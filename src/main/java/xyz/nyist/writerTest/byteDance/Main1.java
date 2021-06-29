@@ -1,4 +1,4 @@
-package xyz.nyist.byteDance;
+package xyz.nyist.writerTest.byteDance;
 
 import java.util.Scanner;
 

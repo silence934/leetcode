@@ -30,7 +30,7 @@ public class Computer {
         System.out.println(Arrays.toString(arr));*/
         if (isLegalExpression(arr)) {
             System.out.println("表达式合法,结果:");
-            System.out.println(String.format("%.2f", compute(arr)));
+            System.out.printf("%.2f%n", compute(arr));
         }
         else {
             System.out.println("非法表达式");
@@ -134,8 +134,9 @@ public class Computer {
                 return a / b;
             case POW:
                 return Math.pow(a, b);
+            default:
+                return 0.0;
         }
-        return 0.0;
     }
 
     //否合法

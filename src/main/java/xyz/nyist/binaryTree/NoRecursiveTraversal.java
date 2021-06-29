@@ -80,7 +80,7 @@ public class NoRecursiveTraversal {
     }
 
     private static void postTraversal(TreeNode root) {
-        TreeNode temp = root, per = null;
+        TreeNode temp = root, pre = null;
         Stack<TreeNode> stack = new Stack<>();
         while (temp != null || !stack.isEmpty()) {
             while (temp != null) {
@@ -88,12 +88,12 @@ public class NoRecursiveTraversal {
                 temp = temp.left;
             }
             temp = stack.peek();
-            if (temp.right != null && temp.right.val != per.val) {
+            if (temp.right != null && pre != null && temp.right.val != pre.val) {
                 //顶元素是否存在右孩子，如果存在并且没有被访问
                 temp = temp.right;
             } else {
-                per = stack.pop();
-                System.out.print(per.val + " ");
+                pre = stack.pop();
+                System.out.print(pre.val + " ");
                 temp = null;
             }
         }
