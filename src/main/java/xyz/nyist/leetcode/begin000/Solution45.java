@@ -1,6 +1,8 @@
 package xyz.nyist.leetcode.begin000;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 /**
@@ -58,6 +60,8 @@ public class Solution45 {
     public static void main(String[] args) {
         Solution45 solution45 = new Solution45();
         System.out.println(solution45.jump2(new int[]{2, 9, 6, 5, 7, 0, 7, 2, 7, 9, 3, 2, 2, 5, 7, 8, 1, 6, 6, 6, 3, 5, 2, 2, 6, 3}));
+        System.out.println(solution45.jump3(new int[]{2, 9, 6, 5, 7, 0, 7, 2, 7, 9, 3, 2, 2, 5, 7, 8, 1, 6, 6, 6, 3, 5, 2, 2, 6, 3}));
+        //System.out.println(solution45.jump3(new int[]{2, 3, 1, 1, 4}));
     }
 
     public int jump1(int[] nums) {
@@ -88,5 +92,27 @@ public class Solution45 {
             }
         }
         return steps;
+    }
+
+    Map<Integer, Integer> map = new HashMap<>();
+
+    public int jump3(int[] nums) {
+        return test(nums, 0);
+    }
+
+    private int test(int[] nums, int p) {
+        if (p >= nums.length - 1) {
+            return 0;
+        }
+        if (map.get(p) != null) {
+            return map.get(p);
+        }
+        int res = Integer.MAX_VALUE / 2;
+        for (int i = p + 1; i <= p + nums[p]; i++) {
+            res = Math.min(res, 1 + test(nums, i));
+        }
+        map.put(p, res);
+
+        return res;
     }
 }

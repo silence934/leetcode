@@ -33,6 +33,36 @@ public class Solution122 {
 
     public static void main(String[] args) {
         Solution122 solution122 = new Solution122();
-        System.out.println(solution122.maxProfit(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(solution122.maxProfit2(new int[]{1, 2, 3, 4, 5}));
+    }
+
+    public int maxProfit1(int[] prices) {
+        int[][] dp = new int[2][prices.length];
+
+        dp[0][0] = 0;
+        dp[1][0] = -prices[0];
+
+
+        for (int i = 1; i < prices.length; i++) {
+            dp[0][i] = Math.max(dp[0][i - 1], dp[1][i - 1] + prices[i]);
+            dp[1][i] = Math.max(dp[1][i - 1], dp[0][i - 1] - prices[i]);
+        }
+
+        return dp[0][prices.length - 1];
+    }
+
+    public int maxProfit2(int[] prices) {
+
+        int p1 = 0;
+        int p2 = -prices[0];
+
+
+        for (int i = 1; i < prices.length; i++) {
+            int t = p1;
+            p1 = Math.max(t, p2 + prices[i]);
+            p2 = Math.max(p2, t - prices[i]);
+        }
+
+        return p1;
     }
 }

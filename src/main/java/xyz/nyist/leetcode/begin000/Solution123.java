@@ -58,5 +58,34 @@ public class Solution123 {
     public static void main(String[] args) {
         Solution123 solution123 = new Solution123();
         System.out.println(solution123.maxProfit(new int[]{3, 3, 5, 0, 0, 3, 1, 4}));
+        System.out.println(solution123.maxProfit1(new int[]{3, 3, 5, 0, 0, 3, 1, 4}));
     }
+
+    public int maxProfit1(int[] prices) {
+
+        int[][][] dp = new int[2][prices.length][3];
+
+        dp[0][0][0] = 0;
+        dp[0][0][1] = Integer.MIN_VALUE / 2;
+        dp[0][0][2] = Integer.MIN_VALUE / 2;
+        dp[1][0][0] = Integer.MIN_VALUE / 2;
+        dp[1][0][1] = -prices[0];
+        dp[1][0][2] = Integer.MIN_VALUE / 2;
+
+
+        for (int i = 1; i < prices.length; i++) {
+            for (int k = 1; k < 3; k++) {
+                dp[0][i][k] = Math.max(dp[0][i - 1][k], dp[1][i - 1][k] + prices[i]);
+                dp[1][i][k] = Math.max(dp[0][i - 1][k - 1] - prices[i], dp[1][i - 1][k]);
+            }
+        }
+
+        int max = -1;
+        for (int i = 0; i < 3; i++) {
+            max = Math.max(dp[0][prices.length - 1][i], max);
+        }
+
+        return max;
+    }
+
 }

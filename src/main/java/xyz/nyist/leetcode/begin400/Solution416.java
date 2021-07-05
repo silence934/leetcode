@@ -28,6 +28,7 @@ public class Solution416 {
     public static void main(String[] args) {
         Solution416 solution416 = new Solution416();
         System.out.println(solution416.canPartition(new int[]{1, 5, 11, 5}));
+        System.out.println(solution416.canPartition1(new int[]{1, 5, 11, 5}));
     }
 
     public boolean canPartition(int[] nums) {
@@ -45,6 +46,33 @@ public class Solution416 {
             }
         }
         return dp[sum];
+    }
+
+    public boolean canPartition1(int[] nums) {
+        int sum = Arrays.stream(nums).sum();
+        if ((sum & 1) == 1) {
+            return false;
+        }
+        sum /= 2;
+
+        int[][] dp = new int[nums.length + 1][sum + 1];
+
+
+        for (int i = 0; i < nums.length + 1; i++) {
+            for (int j = 0; j < sum + 1; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 0;
+                } else {
+                    if (nums[i - 1] > j) {
+                        dp[i][j] = dp[i - 1][j];
+                    } else {
+                        dp[i][j] = Math.max(nums[i - 1] + dp[i - 1][j - nums[i - 1]], dp[i - 1][j]);
+                    }
+                }
+            }
+        }
+
+        return dp[nums.length][sum] == sum;
     }
 
 }

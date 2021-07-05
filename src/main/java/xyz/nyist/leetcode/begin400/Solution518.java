@@ -25,6 +25,7 @@ public class Solution518 {
     public static void main(String[] args) {
         Solution518 solution518 = new Solution518();
         System.out.println(solution518.change(5, new int[]{1, 2, 5}));
+        System.out.println(solution518.change1(5, new int[]{1, 2, 5}));
     }
 
     public int change(int amount, int[] coins) {
@@ -48,4 +49,24 @@ public class Solution518 {
         return dp[coins.length][amount];
     }
 
+
+    public int change1(int amount, int[] coins) {
+        int[][] dp = new int[coins.length + 1][amount + 1];
+        for (int i = 0; i < coins.length + 1; i++) {
+            for (int j = 0; j < amount + 1; j++) {
+                if (j == 0) {
+                    dp[i][j] = 1;
+                } else if (i == 0) {
+                    dp[i][j] = 0;
+                } else {
+                    if (coins[i - 1] > j) {
+                        dp[i][j] = dp[i - 1][j];
+                    } else {
+                        dp[i][j] = dp[i][j - coins[i - 1]] + dp[i - 1][j];
+                    }
+                }
+            }
+        }
+        return dp[coins.length][amount];
+    }
 }

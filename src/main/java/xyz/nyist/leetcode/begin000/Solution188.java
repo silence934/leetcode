@@ -56,5 +56,46 @@ public class Solution188 {
     public static void main(String[] args) {
         Solution188 solution188 = new Solution188();
         System.out.println(solution188.maxProfit(2, new int[]{3, 2, 6, 5, 0, 3}));
+        System.out.println(solution188.maxProfit1(2, new int[]{3, 2, 6, 5, 0, 3}));
+    }
+
+
+    public int maxProfit1(int k, int[] prices) {
+        if (prices.length < 2) {
+            return 0;
+        }
+        int no = Integer.MIN_VALUE / 2;
+
+        int[] p0 = new int[k + 1];
+        int[] p1 = new int[k + 1];
+
+        for (int i = 0; i < k + 1; i++) {
+            if (i == 0) {
+                p0[0] = 0;
+                p1[0] = no;
+            } else if (i == 1) {
+                p0[1] = no;
+                p1[1] = -prices[0];
+            } else {
+                p0[i] = no;
+                p1[i] = no;
+            }
+        }
+
+        for (int i = 1; i < prices.length; i++) {
+            for (int j = 1; j <= k; j++) {
+                int t = p0[j - 1];
+                p0[j] = Math.max(p0[j], p1[j] + prices[i]);
+                p1[j] = Math.max(p1[j], t - prices[i]);
+            }
+        }
+
+
+        int max = -1;
+        for (int i = 0; i < k + 1; i++) {
+            max = Math.max(p0[i], max);
+        }
+
+        return max;
     }
 }
