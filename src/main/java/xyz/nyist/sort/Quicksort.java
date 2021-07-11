@@ -12,10 +12,6 @@ public class Quicksort {
 
     private static void test(int[] nums, int low, int high) {
 
-
-        int t = 9;
-        int[] a = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-
         int h = high, l = low;
         if (low >= high) {
             return;

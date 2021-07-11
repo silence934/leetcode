@@ -1,6 +1,13 @@
 package xyz.nyist.test;
 
-import java.util.ArrayList;
+import xyz.nyist.entity.DateTest;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * @Author: silence
@@ -10,17 +17,25 @@ import java.util.ArrayList;
 public class Test {
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
+        List<DateTest> list = Arrays.asList(
+                new DateTest(1, "2"),
+                new DateTest(1, "2"),
+                new DateTest(2, "2"),
+                new DateTest(3, "2")
+        );
 
-        list.add(1);
-        list.add(6);
-        list.add(3);
-        list.add(4);
-
-
-        list.remove(1);
 
         System.out.println(list);
+        System.out.println(list.stream().mapToInt(DateTest::getId).sum());
+
+        list.stream().filter(distinctByKey(DateTest::getId))
+                .forEach(System.out::println);
 
     }
+
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(keyExtractor.apply(t));
+    }
+
 }

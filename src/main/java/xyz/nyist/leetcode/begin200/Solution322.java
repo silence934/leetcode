@@ -25,8 +25,7 @@ public class Solution322 {
     public int coinChange(int[] coins, int amount) {
         if (amount == 0) {
             return 0;
-        }
-        else if (amount < 0) {
+        } else if (amount < 0) {
             return -1;
         }
         int min = Integer.MAX_VALUE;
@@ -41,7 +40,7 @@ public class Solution322 {
 
     public static void main(String[] args) {
         Solution322 solution322 = new Solution322();
-        System.out.println(solution322.coinChange1(new int[]{1, 2, 5}, 11));
+        System.out.println(solution322.coinChange3(new int[]{2}, 3));
     }
 
     int min = Integer.MAX_VALUE;
@@ -56,13 +55,36 @@ public class Solution322 {
         if (amount == 0) {
             min = Math.min(min, count);
             return;
-        }
-        else if (amount < 0 || k < 0) {
+        } else if (amount < 0 || k < 0) {
             return;
         }
         for (int i = amount / coins[k]; i > -1 && count + i < min; i--) {
             coinChange(k - 1, coins, amount - coins[k] * i, count + i);
         }
+    }
+
+    public int coinChange3(int[] coins, int amount) {
+
+        Integer[] dp = new Integer[amount + 1];
+
+        for (int i = 0; i < amount + 1; i++) {
+            for (int coin : coins) {
+                if (i == 0) {
+                    dp[i] = 0;
+                } else if (coin <= i) {
+                    if (dp[i - coin] != null) {
+                        if (dp[i] == null) {
+                            dp[i] = dp[i - coin] + 1;
+                        } else {
+                            dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                        }
+                    }
+                }
+            }
+        }
+
+
+        return dp[amount] == null ? -1 : dp[amount];
     }
 
 }
