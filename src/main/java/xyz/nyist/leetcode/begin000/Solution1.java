@@ -6,6 +6,7 @@ package xyz.nyist.leetcode.begin000;
  * @Date:Create：in 2020/5/6 8:17
  */
 class Solution1 {
+
     public boolean exist(char[][] board, String word) {
         char[] words = word.toCharArray();
         for (int i = 0; i < board.length; i++) {
@@ -32,5 +33,23 @@ class Solution1 {
         board[i][j] = tmp;
         return res;
     }
+
+
+    /**
+     * --------------------------------------------------
+     */
+    public int[] twoSum(int[] nums, int target) {
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if (i != j && nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+
+        return null;
+    }
+
 }
 
