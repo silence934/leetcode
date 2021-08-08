@@ -30,14 +30,17 @@ import java.util.Queue;
  */
 public class Solution199 {
 
-    class Node {
+    private static class Node {
+
         TreeNode treeNode;
+
         int index;
 
         public Node(TreeNode treeNode, int index) {
             this.treeNode = treeNode;
             this.index = index;
         }
+
     }
 
     public List<Integer> rightSideView(TreeNode root) {
@@ -64,7 +67,27 @@ public class Solution199 {
         return list;
     }
 
-    public static void main(String[] args) {
+    private List<Integer> res;
 
+    private int maxHeight;
+
+    public List<Integer> rightSideView1(TreeNode root) {
+        res = new ArrayList<>();
+        maxHeight = -1;
+        show(root, 0);
+        return res;
     }
+
+    private void show(TreeNode root, int height) {
+        if (root == null) {
+            return;
+        }
+        if (height > maxHeight) {
+            res.add(root.val);
+            maxHeight = height;
+        }
+        show(root.right, height + 1);
+        show(root.left, height + 1);
+    }
+
 }
