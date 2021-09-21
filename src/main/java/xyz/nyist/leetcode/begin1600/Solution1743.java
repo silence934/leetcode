@@ -6,32 +6,36 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: fucong
- * @Date: 2021/7/26 11:06
+ * @author: silence
+ * @Date: 2021/7/25 22:51
  * @Description:
  */
 public class Solution1743 {
-
     public int[] restoreArray(int[][] adjacentPairs) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int[] adjacentPair : adjacentPairs) {
-            map.computeIfAbsent(adjacentPair[0], k -> new ArrayList<>());
+            map.putIfAbsent(adjacentPair[0], new ArrayList<>());
+            map.putIfAbsent(adjacentPair[1], new ArrayList<>());
             map.get(adjacentPair[0]).add(adjacentPair[1]);
-
-            map.computeIfAbsent(adjacentPair[1], k -> new ArrayList<>());
             map.get(adjacentPair[1]).add(adjacentPair[0]);
         }
 
-        int[] res = new int[adjacentPairs.length + 1];
-        res[0] = map.entrySet().stream().filter(k -> k.getValue().size() == 1).findFirst().get().getKey();
-
-        res[1] = map.get(res[0]).get(0);
-        for (int i = 2; i < res.length; i++) {
-            List<Integer> list = map.get(res[i - 1]);
-            res[i] = list.get(0).equals(res[i - 2]) ? list.get(1) : list.get(0);
+        int n = adjacentPairs.length + 1;
+        int[] ret = new int[n];
+        for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+            int e = entry.getKey();
+            List<Integer> adj = entry.getValue();
+            if (adj.size() == 1) {
+                ret[0] = e;
+                break;
+            }
         }
 
-        return res;
+        ret[1] = map.get(ret[0]).get(0);
+        for (int i = 2; i < n; i++) {
+            List<Integer> adj = map.get(ret[i - 1]);
+            ret[i] = ret[i - 2] == adj.get(0) ? adj.get(1) : adj.get(0);
+        }
+        return ret;
     }
-
 }
