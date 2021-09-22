@@ -11,20 +11,21 @@ package xyz.nyist.leetcode.begin000;
  */
 public class Solution70 {
 
-    public static int climbStairs(int n) {
-        if (n < 3) {
-            return n;
-        }
-        int[] a = new int[n];
-        a[0] = 1;
-        a[1] = 2;
-        for (int i = 2; i < n; i++) {
-            a[i] = a[i - 1] + a[i - 2];
-        }
-        return a[n - 1];
+    public static void main(String[] args) {
+        System.out.println(new Solution70().climbStairs(3));
     }
 
-    public static void main(String[] args) {
-        System.out.println(climbStairs(1));
+    public int climbStairs(int n) {
+        int x = 1, y = 2;
+        for (int i = 3; i <= n; i++) {
+            if (i % 2 == 0) {
+                y = x + y;
+            } else {
+                x = x + y;
+            }
+        }
+
+        return n % 2 == 0 ? y : x;
     }
+
 }
