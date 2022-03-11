@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @Description: 快速排序
  * @Date:Create：in 2020/7/3 11:46
  */
-public class Quicksort {
+public class QuickSort {
 
 
     private static void test(int[] nums, int low, int high) {

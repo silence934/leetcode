@@ -2,6 +2,7 @@ package xyz.nyist.leetcode.begin000;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
  */
 public class Solution39 {
 
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum1(int[] candidates, int target) {
 
         List<List<Integer>>[] dp = new ArrayList[target + 1];
 
@@ -39,5 +40,42 @@ public class Solution39 {
 
         return dp[target];
     }
+
+
+    List<List<Integer>> res = new ArrayList<>();
+
+    LinkedList<Integer> list = new LinkedList<>();
+
+    int sum = 0;
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        combinationSum(candidates, target, 0);
+        return res;
+    }
+
+
+    public void combinationSum(int[] candidates, int target, int start) {
+
+        if (sum > target) {
+            return;
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+            int candidate = candidates[i];
+            list.addLast(candidate);
+            sum += candidate;
+
+            if (sum == target) {
+                res.add(new ArrayList<>(list));
+            } else {
+                combinationSum(candidates, target, i);
+            }
+
+            list.removeLast();
+            sum -= candidate;
+        }
+
+    }
+
 
 }
