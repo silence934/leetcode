@@ -1,8 +1,8 @@
 package xyz.nyist.leetcode.begin1400;
 
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import xyz.nyist.utils.ListNode;
+
+import java.util.*;
 
 /**
  * @Author: silence
@@ -24,13 +24,12 @@ import java.util.Set;
  */
 public class Solution1591 {
 
-    public ListNode removeDuplicateNodes(ListNode head) {
+    public ListNode removeDuplicateNodes1(ListNode head) {
         Set<Integer> set = new LinkedHashSet<>();
         while (head != null) {
             set.add(head.val);
             head = head.next;
         }
-        System.out.println(set);
         ListNode listNode = null, H = null;
         boolean b = true;
         Iterator<Integer> iterator = set.iterator();
@@ -38,8 +37,7 @@ public class Solution1591 {
             if (b) {
                 H = listNode = new ListNode(iterator.next());
                 b = false;
-            }
-            else {
+            } else {
                 ListNode node = new ListNode(iterator.next());
                 listNode.next = node;
                 listNode = node;
@@ -47,6 +45,28 @@ public class Solution1591 {
 
         }
         return H;
+    }
+
+
+    public ListNode removeDuplicateNodes(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+        Map<Integer, Integer> map = new HashMap<>();
+        ListNode res = head;
+
+        map.put(head.val, null);
+        while (head.next != null) {
+            if (map.containsKey(head.next.val)) {
+                head.next = head.next.next;
+            } else {
+                map.put(head.next.val, null);
+                head = head.next;
+            }
+        }
+
+
+        return res;
     }
 
     public static void main(String[] args) {
@@ -64,20 +84,5 @@ public class Solution1591 {
         System.out.println(solution1591.removeDuplicateNodes(listNode1));
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
-    }
 }
