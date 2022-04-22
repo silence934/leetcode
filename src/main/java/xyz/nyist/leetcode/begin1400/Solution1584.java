@@ -3,6 +3,7 @@ package xyz.nyist.leetcode.begin1400;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * @author: fucong
@@ -14,11 +15,7 @@ public class Solution1584 {
     public static void main(String[] args) {
         Solution1584 solution1584 = new Solution1584();
         System.out.println(solution1584.minCostConnectPoints(new int[][]{
-                new int[]{0, 0},
-                new int[]{2, 2},
-                new int[]{3, 10},
-                new int[]{5, 2},
-                new int[]{7, 0}
+                new int[]{0, 0}
         }));
     }
 
@@ -32,7 +29,10 @@ public class Solution1584 {
             }
         }
 
-        weights.sort(Comparator.comparingInt(o -> o[2]));
+        Prim prim = new Prim(weights, points.length);
+        return prim.allConnected() ? prim.weightSum() : -1;
+
+       /* weights.sort(Comparator.comparingInt(o -> o[2]));
 
         UF uf = new UF(points.length);
 
@@ -45,7 +45,7 @@ public class Solution1584 {
             }
         }
 
-        return ans;
+        return ans;*/
     }
 
     private int getWeight(int[] pointA, int[] pointB) {
@@ -113,6 +113,86 @@ public class Solution1584 {
             }
 
             return x;
+        }
+
+    }
+
+
+    public static class Prim {
+
+        private int weightSum;
+
+        private final boolean[] inMst;
+
+        private final PriorityQueue<int[]> priorityQueue;
+
+        private final List<int[]>[] graph;
+
+        public Prim(List<int[]> graph, int n) {
+            weightSum = 0;
+            inMst = new boolean[n];
+            this.graph = new List[n];
+            for (int[] edge : graph) {
+                int form = edge[0];
+                int to = edge[1];
+                int weight = edge[2];
+                if (this.graph[form] == null) {
+                    this.graph[form] = new ArrayList<>();
+                }
+                this.graph[form].add(new int[]{form, to, weight});
+                if (this.graph[to] == null) {
+                    this.graph[to] = new ArrayList<>();
+                }
+                this.graph[to].add(new int[]{to, form, weight});
+            }
+
+            priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[2]));
+
+            inMst[0] = true;
+            cut(0);
+            while (!priorityQueue.isEmpty()) {
+                int[] poll = priorityQueue.poll();
+
+                int to = poll[1];
+                int weight = poll[2];
+                if (inMst[to]) {
+                    continue;
+                }
+
+                weightSum += weight;
+                inMst[to] = true;
+                cut(to);
+            }
+
+
+        }
+
+
+        // 最小生成树的权重和
+        public int weightSum() {
+            return weightSum;
+        }
+
+
+        private void cut(int p) {
+            if (graph[p] == null) {
+                return;
+            }
+            for (int[] edge : graph[p]) {
+                if (!inMst[edge[1]]) {
+                    priorityQueue.add(edge);
+                }
+            }
+        }
+
+        // 判断最小生成树是否包含图中的所有节点
+        public boolean allConnected() {
+            for (boolean b : inMst) {
+                if (!b) {
+                    return false;
+                }
+            }
+            return true;
         }
 
     }
