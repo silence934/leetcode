@@ -12,8 +12,11 @@ public class Solution207 {
 
     public static void main(String[] args) {
         Solution207 solution207 = new Solution207();
-        System.out.println(solution207.canFinish(2, new int[][]{
-                new int[]{1, 0}
+        System.out.println(solution207.canFinish(3, new int[][]{
+                new int[]{0, 1},
+                new int[]{0, 2},
+                new int[]{1, 2},
+                new int[]{2, 1},
         }));
     }
 
@@ -31,12 +34,13 @@ public class Solution207 {
             map[i] = new ArrayList<>();
         }
         for (int[] prerequisite : prerequisites) {
-            map[prerequisite[0]].add(prerequisite[1]);
+            map[prerequisite[1]].add(prerequisite[0]);
         }
 
         for (int i = 0; i < numCourses; i++) {
             if (!used[i]) {
                 path[i] = true;
+                used[i] = true;
                 if (!canFinish(i)) {
                     return false;
                 }
@@ -53,14 +57,15 @@ public class Solution207 {
                 return false;
             }
             if (used[integer]) {
-                return true;
+                continue;
             }
+            used[integer] = true;
+
             path[integer] = true;
             if (!canFinish(integer)) {
                 return false;
             }
 
-            used[integer] = true;
             path[integer] = false;
         }
 
