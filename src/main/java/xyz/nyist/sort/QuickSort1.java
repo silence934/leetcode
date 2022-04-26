@@ -10,10 +10,20 @@ import java.util.Arrays;
 public class QuickSort1 {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{10, 3, 5, 2, 7, 4, 6, 90, 3, 2, 6, 8, 3, 5, 6, 1, 7, 9};
+        int[] array1 = ArrayUtils.randomArray(100000);
+        int[] array2 = Arrays.copyOf(array1, array1.length);
 
-        sort(nums, 0, nums.length);
-        System.out.println(Arrays.toString(nums));
+
+        long start = System.currentTimeMillis();
+        sort(array1, 0, array1.length);
+        System.out.println("快速排序时间:" + (System.currentTimeMillis() - start));
+
+        start = System.currentTimeMillis();
+        Arrays.sort(array2);
+        System.out.println("Arrays.sort排序时间:" + (System.currentTimeMillis() - start));
+
+
+        System.out.println(ArrayUtils.compare(array1, array2));
     }
 
     private static void sort(int[] nums, int start, int end) {
@@ -22,33 +32,41 @@ public class QuickSort1 {
             return;
         }
 
-        int left = start, right = end - 1;
-        int t = nums[start];
+        int base = nums[start];
 
+        int left = start;
+        int right = end - 1;
 
-        while (left < right) {
-            while (left < right) {
-                if (t > nums[right]) {
-                    nums[left] = nums[right];
-                    break;
-                }
+        int index = start;
+        while (left != right) {
+
+            while (left != right && nums[right] >= base) {
                 right--;
             }
 
-            while (left < right) {
-                if (t < nums[left]) {
-                    nums[right] = nums[left];
-                    break;
-                }
+            if (left == right) {
+                break;
+            }
+            nums[index] = nums[right];
+            index = right;
+
+            while (left != right && nums[left] <= base) {
                 left++;
             }
+            if (left == right) {
+                break;
+            }
+
+            nums[index] = nums[left];
+            index = left;
+
         }
 
+        nums[index] = base;
 
-        nums[left] = t;
+        sort(nums, start, index);
+        sort(nums, index + 1, end);
 
-        sort(nums, start, left);
-        sort(nums, left + 1, end);
     }
 
 
