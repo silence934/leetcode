@@ -5,7 +5,7 @@ import xyz.nyist.utils.ListNode;
 /**
  * @author: silence
  * @Date: 2021/6/29 22:28
- * @Description:
+ * @Description: 反转链表
  */
 public class Solution206 {
 

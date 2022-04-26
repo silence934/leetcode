@@ -2,6 +2,9 @@ package xyz.nyist.leetcode.begin000;
 
 import xyz.nyist.utils.ListNode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * @author: fucong
  * @Date: 2021/7/14 12:28
@@ -42,6 +45,32 @@ public class Solution23 {
         }
 
         return head;
+    }
+
+    public ListNode mergeKLists1(ListNode[] lists) {
+
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));
+
+        for (ListNode list : lists) {
+            if (list != null) {
+                queue.add(list);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            ListNode node = queue.poll();
+            if (node.next != null) {
+                queue.add(node.next);
+            }
+            p.next = node;
+            p = p.next;
+        }
+
+
+        return dummy.next;
     }
 
 }
