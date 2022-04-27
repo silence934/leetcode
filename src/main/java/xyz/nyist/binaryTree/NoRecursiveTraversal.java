@@ -24,8 +24,14 @@ public class NoRecursiveTraversal {
         System.out.println("中序遍历:");
         inorderTraversal(tree);
         System.out.println();
+        System.out.println("中序遍历1:");
+        inorderTraversal1(tree);
+        System.out.println();
         System.out.println("后序遍历:");
         postTraversal(tree);
+        System.out.println();
+        System.out.println("后序遍历1:");
+        postTraversal1(tree);
     }
 
     private static void preTraversal(TreeNode root) {
@@ -79,6 +85,30 @@ public class NoRecursiveTraversal {
         }
     }
 
+    private static void inorderTraversal1(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        boolean b = true;
+        while (!stack.isEmpty()) {
+            TreeNode node;
+            if (b) {
+                node = stack.pop();
+                while (node != null) {
+                    stack.add(node);
+                    node = node.left;
+                }
+            }
+            node = stack.pop();
+            System.out.print(node.val + " ");
+            if (node.right != null) {
+                stack.add(node.right);
+                b = true;
+            } else {
+                b = false;
+            }
+        }
+    }
+
     private static void postTraversal(TreeNode root) {
         TreeNode temp = root, pre = null;
         Stack<TreeNode> stack = new Stack<>();
@@ -96,6 +126,35 @@ public class NoRecursiveTraversal {
                 System.out.print(pre.val + " ");
                 temp = null;
             }
+        }
+    }
+
+
+    private static void postTraversal1(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+        TreeNode pre = null;
+        boolean b = true;
+        while (!stack.isEmpty()) {
+            if (b) {
+                TreeNode node = stack.pop();
+                while (node != null) {
+                    stack.add(node);
+                    node = node.left;
+                }
+            }
+
+            TreeNode peek = stack.peek();
+            if (peek.right != null && peek.right != pre) {
+                stack.add(peek.right);
+                b = true;
+            } else {
+                pre = peek;
+                System.out.print(peek.val + " ");
+                stack.pop();
+                b = false;
+            }
+
         }
     }
 
