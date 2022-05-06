@@ -9,6 +9,7 @@ import java.util.Queue;
  * @Date:Create：in 2020/4/21 16:10
  */
 public class TaskQueue {
+
     Queue<String> queue = new LinkedList<>();
 
     public void addTask(String s, Object o) {
@@ -94,4 +95,5 @@ public class TaskQueue {
         //aa();
         bb();
     }
+
 }
