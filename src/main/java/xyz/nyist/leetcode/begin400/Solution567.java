@@ -51,4 +51,40 @@ public class Solution567 {
         return false;
     }
 
+
+    public boolean checkInclusion1(String s1, String s2) {
+        int[] need = new int[128];
+
+        for (char c : s1.toCharArray()) {
+            need[c]++;
+        }
+
+        int left = 0, right = 0;
+
+
+        char[] chars = s2.toCharArray();
+
+        while (left < s2.length() && right < s2.length()) {
+
+            while (right < s2.length()) {
+                char c = chars[right];
+
+                if (need[c] == 0) {
+                    break;
+                }
+                need[c]--;
+                right++;
+            }
+
+
+            if (right - left == s1.length()) {
+                return true;
+            }
+
+            need[chars[left++]]++;
+
+        }
+        return false;
+    }
+
 }
