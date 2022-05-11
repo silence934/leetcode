@@ -11,12 +11,12 @@ package xyz.nyist.leetcode.begin000;
  * 注意: "aba" 也是一个有效答案。
  * <p>
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/longest-palindromic-substring
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @Date:Create：in 2020/7/4 17:58
  */
 
 public class Solution5 {
+
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0) {
             return "";
@@ -56,5 +56,6 @@ public class Solution5 {
         Solution5 solution5 = new Solution5();
         System.out.println(solution5.longestPalindrome("bb"));
     }
+
 }
 
