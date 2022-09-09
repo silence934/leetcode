@@ -3,7 +3,7 @@ package xyz.nyist.sort;
 import java.util.Random;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/26 21:25
  * @Description:
  */

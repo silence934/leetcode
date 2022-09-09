@@ -3,11 +3,12 @@ package xyz.nyist.leetcode.begin200;
 import xyz.nyist.utils.TreeNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/29 11:06
  * @Description:
  */
 public class Solution235 {
+
     int min, max;
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -29,4 +30,5 @@ public class Solution235 {
         }
         return test(root.right);
     }
+
 }

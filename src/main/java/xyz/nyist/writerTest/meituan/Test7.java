@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2021-03-13 16:16
  * @Description :
  * 时间限制： 3000MS
@@ -39,6 +39,7 @@ import java.util.Scanner;
  * 154
  */
 public class Test7 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
@@ -61,4 +62,5 @@ public class Test7 {
             System.out.println(integer);
         }
     }
+
 }

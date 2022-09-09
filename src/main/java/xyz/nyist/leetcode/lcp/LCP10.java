@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.lcp;
 import xyz.nyist.utils.TreeNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/27 15:37
  * @Description:
  */

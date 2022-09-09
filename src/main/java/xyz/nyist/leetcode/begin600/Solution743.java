@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin600;
 import java.util.*;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/27 14:59
  * @Description: Dijkstra
  */

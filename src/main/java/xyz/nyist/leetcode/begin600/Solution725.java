@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin600;
 import xyz.nyist.utils.ListNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/9/22 19:42
  * @Description:
  */

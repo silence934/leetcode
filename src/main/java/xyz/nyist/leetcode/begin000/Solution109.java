@@ -4,7 +4,7 @@ import xyz.nyist.utils.ListNode;
 import xyz.nyist.utils.TreeNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/24 14:19
  * @Description:
  */

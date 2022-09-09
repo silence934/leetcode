@@ -3,11 +3,12 @@ package xyz.nyist.leetcode.begin200;
 import xyz.nyist.utils.TreeNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/29 10:14
  * @Description:
  */
 public class Solution230 {
+
     private int t;
 
     public int kthSmallest(TreeNode root, int k) {
@@ -31,4 +32,5 @@ public class Solution230 {
 
         return test(root.right);
     }
+
 }

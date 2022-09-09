@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-06 15:30
  * @Description :
  */
@@ -50,4 +50,5 @@ public class Solution337 {
 
         return Math.max(rob, noRob);
     }
+
 }

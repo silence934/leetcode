@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-20 17:27
  * @Description :
  * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。
@@ -40,4 +40,5 @@ public class Solution137 {
 
         return seenOnce;
     }
+
 }

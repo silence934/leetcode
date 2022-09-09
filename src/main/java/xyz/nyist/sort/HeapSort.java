@@ -3,7 +3,7 @@ package xyz.nyist.sort;
 import java.util.Arrays;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/26 21:11
  * @Description:
  */
@@ -13,7 +13,7 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] array1 = ArrayUtils.randomArray(100000);
         int[] array2 = Arrays.copyOf(array1, array1.length);
-        
+
 
         long start = System.currentTimeMillis();
         heapSort(array1);

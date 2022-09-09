@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin1800;
 import java.util.Arrays;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/7/14 14:49
  * @Description:
  */

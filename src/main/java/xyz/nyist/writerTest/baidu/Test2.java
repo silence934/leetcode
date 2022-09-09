@@ -3,11 +3,12 @@ package xyz.nyist.writerTest.baidu;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-03 20:06
  * @Description :
  */
 public class Test2 {
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
@@ -43,4 +44,5 @@ public class Test2 {
 
         }
     }
+
 }

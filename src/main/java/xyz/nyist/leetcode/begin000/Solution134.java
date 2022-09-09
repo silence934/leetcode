@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin000;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-06 10:54
  * @Description :
  * 在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。
@@ -37,6 +37,7 @@ package xyz.nyist.leetcode.begin000;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution134 {
+
     public int canCompleteCircuit(int[] gas, int[] cost) {
         for (int i = 0; i < gas.length; i++) {
             gas[i] -= cost[i];
@@ -62,4 +63,5 @@ public class Solution134 {
         Solution134 solution134 = new Solution134();
         System.out.println(solution134.canCompleteCircuit(new int[]{1, 2, 3, 4, 5}, new int[]{3, 4, 5, 1, 2}));
     }
+
 }

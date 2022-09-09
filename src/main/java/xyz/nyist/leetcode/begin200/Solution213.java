@@ -1,11 +1,12 @@
 package xyz.nyist.leetcode.begin200;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-06 12:44
  * @Description :
  */
 public class Solution213 {
+
     public static void main(String[] args) {
         Solution213 solution213 = new Solution213();
         System.out.println(solution213.rob(new int[]{1}));
@@ -18,7 +19,7 @@ public class Solution213 {
             return nums[0];
         }
         return Math.max(rob(nums, 0, nums.length - 2),
-                rob(nums, 1, nums.length - 1));
+                        rob(nums, 1, nums.length - 1));
     }
 
     public int rob(int[] nums, int start, int end) {
@@ -46,4 +47,5 @@ public class Solution213 {
 
         return Math.max(dp[0][nums.length - 1], dp[1][nums.length - 1]);
     }
+
 }

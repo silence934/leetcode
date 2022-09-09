@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin1000;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/7/2 11:36
  * @Description:
  */
@@ -29,4 +29,5 @@ public class Solution1143 {
         }
         return memo[i][j];
     }
+
 }

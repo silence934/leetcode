@@ -7,11 +7,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-27 09:47
  * @Description :
  */
 public class Test2 {
+
     public static void main(String[] args) {
         Test2 test2 = new Test2();
         System.out.println(test2.sumNumbers(null));
@@ -49,4 +50,5 @@ public class Test2 {
         }
         return res;
     }
+
 }

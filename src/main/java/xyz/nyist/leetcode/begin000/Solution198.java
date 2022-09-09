@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin000;
 import java.util.Arrays;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-08-15 18:52
  * @Description :
  */
@@ -95,4 +95,5 @@ public class Solution198 {
 
         return Math.max(dp[0][nums.length - 1], dp[1][nums.length - 1]);
     }
+
 }

@@ -4,7 +4,7 @@ import xyz.nyist.utils.TreeNode;
 import xyz.nyist.utils.TreeUtil;
 
 /**
- * @author fucong
+ * @author silence
  * @date 2020-07-22 14:25
  * @description 二叉搜索树中的两个节点被错误地交换。
  * <p>

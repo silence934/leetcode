@@ -1,11 +1,12 @@
 package xyz.nyist.writerTest.sougou;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-25 19:21
  * @Description :
  */
 public class Test2 {
+
     public static void main(String[] args) {
         Test2 test2 = new Test2();
         //["1101","1010","1111","1110"],["ABCD","EFGH","IJKL","MNPQ"]
@@ -68,4 +69,5 @@ public class Test2 {
             System.out.println();
         }
     }
+
 }

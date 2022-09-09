@@ -6,7 +6,7 @@ import xyz.nyist.utils.TreeUtil;
 import java.util.Stack;
 
 /**
- * @author fucong
+ * @author silence
  * @date 2020-07-28 17:10
  * @description 根据一棵树的前序遍历与中序遍历构造二叉树。
  * <p>

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-08-15 18:56
  * @Description : 携程笔试
  * 天会SOHO最近正在进行道路建设，现在有充足的长度为a和长度为b的两种规格的瓷砖。

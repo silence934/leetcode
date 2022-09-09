@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin400;
 import java.util.Arrays;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2021-02-16 19:41
  * @Description :
  * 给定长度为 2n 的整数数组 nums ，你的任务是将这些数分成 n 对, 例如 (a1, b1), (a2, b2), ..., (an, bn) ，使得从 1 到 n 的 min(ai, bi) 总和最大。
@@ -41,4 +41,5 @@ public class Solution561 {
         Solution561 solution561 = new Solution561();
         System.out.println(solution561.arrayPairSum(new int[]{6, 2, 6, 5, 1, 2}));
     }
+
 }

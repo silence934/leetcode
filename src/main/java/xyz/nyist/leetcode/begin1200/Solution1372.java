@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin1200;
 import xyz.nyist.utils.TreeNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/30 15:33
  * @Description:
  */

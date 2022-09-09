@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin1000;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/8/8 21:41
  * @Description:
  */

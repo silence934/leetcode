@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/30 16:57
  * @Description:
  */
@@ -19,10 +19,13 @@ public class Solution460 {
     }
 
     private int capacity;
+
     private int minFreq = 0;
 
     private Map<Integer, Integer> map1 = new HashMap<>();
+
     private Map<Integer, Integer> map2 = new HashMap<>();
+
     private Map<Integer, LinkedHashSet<Integer>> map3 = new HashMap<>();
 
     public Solution460(int capacity) {

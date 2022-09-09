@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/19 17:45
  * @Description: Union-Find 并查集算法 最小生成树  待验证
  * https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247492575&idx=1&sn=bf63eb391351a0dfed0d03e1ac5992e7&scene=21#wechat_redirect

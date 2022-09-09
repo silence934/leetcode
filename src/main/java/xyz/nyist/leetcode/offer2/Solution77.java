@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.offer2;
 import xyz.nyist.utils.ListNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/3/18 11:22
  * @Description: https://leetcode-cn.com/problems/7WHec2/
  */

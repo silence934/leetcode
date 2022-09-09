@@ -3,7 +3,7 @@ package xyz.nyist.writerTest.jd;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-08-27 18:56
  * @Description :
  * 自从学了素数以后，小明喜欢上了数字2、3和5。当然，如果一个数字里面只出现2、3和5这三个数字，他也一样喜欢，例如222、2355、223355。
@@ -27,6 +27,7 @@ import java.util.Scanner;
  * 5
  */
 public class Test1 {
+
     public static void main(String[] args) {
         //2 3 5
         Scanner scanner = new Scanner(System.in);
@@ -44,16 +45,15 @@ public class Test1 {
         while (k-- > 0) {
             if (t <= m / 3) {
                 System.out.print(2);
-            }
-            else if (t <= m / 3 * 2) {
+            } else if (t <= m / 3 * 2) {
                 System.out.print(3);
                 t -= m / 3;
-            }
-            else {
+            } else {
                 System.out.print(5);
                 t -= m / 3 * 2;
             }
             m /= 3;
         }
     }
+
 }

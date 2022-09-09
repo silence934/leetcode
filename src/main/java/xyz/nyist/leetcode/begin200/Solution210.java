@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/24 14:50
  * @Description:
  */
@@ -64,7 +64,7 @@ public class Solution210 {
             return true;
         }
         used[p] = true;
-        
+
         path[p] = true;
 
         for (Integer integer : map[p]) {

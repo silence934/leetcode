@@ -3,11 +3,12 @@ package xyz.nyist.leetcode.begin600;
 import java.util.*;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/25 11:05
  * @Description:
  */
 public class Solution752 {
+
     public static void main(String[] args) {
         Solution752 solution752 = new Solution752();
         System.out.println(solution752.openLock(new String[]{}, "0202"));
@@ -66,5 +67,5 @@ public class Solution752 {
         }
         return list;
     }
-    
+
 }

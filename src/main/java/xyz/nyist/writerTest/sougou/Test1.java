@@ -1,7 +1,7 @@
 package xyz.nyist.writerTest.sougou;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-25 18:49
  * @Description : 总数  对的数量  自己的  朋友的
  */

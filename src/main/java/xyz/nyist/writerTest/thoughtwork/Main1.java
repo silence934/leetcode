@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2021-01-10 16:34
  * @Description :
  */
 public class Main1 {
+
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -34,4 +35,5 @@ public class Main1 {
         array.set(i, array.get(j));
         array.set(j, tmp);
     }
+
 }

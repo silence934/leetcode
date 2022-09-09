@@ -3,11 +3,12 @@ package xyz.nyist.leetcode.begin200;
 import xyz.nyist.utils.TreeNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/6/24 15:46
  * @Description:
  */
 public class Solution226 {
+
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
@@ -21,4 +22,5 @@ public class Solution226 {
 
         return root;
     }
+
 }

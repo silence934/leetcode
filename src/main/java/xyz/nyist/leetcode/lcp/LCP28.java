@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.lcp;
 import java.util.Arrays;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/9/17 15:36
  * @Description:
  */

@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin200;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/4 21:23
  * @Description: 线段树  树状数组
  */

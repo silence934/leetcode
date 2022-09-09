@@ -5,11 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-11 20:25
  * @Description :
  */
 public class Test3 {
+
     public static void main(String[] args) {
         Test3 test3 = new Test3();
         System.out.println(Arrays.toString(test3.split_into_list(2, "11111")));
@@ -47,4 +48,5 @@ public class Test3 {
     public int test(int k) {
         return Integer.toString(k).length();
     }
+
 }

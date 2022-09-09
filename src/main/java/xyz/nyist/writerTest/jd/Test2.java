@@ -3,11 +3,12 @@ package xyz.nyist.writerTest.jd;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-08-27 20:34
  * @Description :
  */
 public class Test2 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
@@ -50,13 +51,19 @@ public class Test2 {
     }
 
     public static class Node {
+
         Node left;
+
         Node right;
+
         Node mid;
+
         int var;
 
         public Node(int var) {
             this.var = var;
         }
+
     }
+
 }

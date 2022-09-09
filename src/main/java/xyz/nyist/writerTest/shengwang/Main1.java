@@ -3,11 +3,12 @@ package xyz.nyist.writerTest.shengwang;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2021-03-27 15:21
  * @Description :
  */
 public class Main1 {
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -22,4 +23,5 @@ public class Main1 {
             t *= 10;
         }
     }
+
 }

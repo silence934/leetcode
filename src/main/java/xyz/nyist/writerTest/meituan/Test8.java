@@ -3,7 +3,7 @@ package xyz.nyist.writerTest.meituan;
 import java.util.*;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2021-03-13 16:33
  * @Description :小美正在统计她公司的数据。她想要知道一定时间段内的某种特征，因此，她将n条数据按时间排好序依次给出，想要知道以某条数据开始的一个连续数据段内数据的众数情况。
  * <p>
@@ -44,6 +44,7 @@ import java.util.*;
  * i=3时，2 1 3中三个数次数均相同，输出最小的那一个数1
  */
 public class Test8 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt(), k = scanner.nextInt();
@@ -62,7 +63,7 @@ public class Test8 {
             } else {
                 map.put(nextInt, t + 1);
             }
-            
+
             if (i >= k - 1) {
 
                 int max = -1;

@@ -6,7 +6,7 @@ import xyz.nyist.utils.TreeUtil;
 import java.util.Stack;
 
 /**
- * @author fucong
+ * @author silence
  * @date 2020-07-31 19:47
  * @description 根据一棵树的中序遍历与后序遍历构造二叉树。
  * <p>
@@ -30,6 +30,7 @@ import java.util.Stack;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution106 {
+
     public static void main(String[] args) {
         Solution106 solution106 = new Solution106();
         TreeNode treeNode = solution106.buildTree(new int[]{9, 3, 15, 20, 7}, new int[]{9, 15, 7, 20, 3});
@@ -63,4 +64,5 @@ public class Solution106 {
         }
         return root;
     }
+
 }

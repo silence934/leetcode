@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.offer2;
 import xyz.nyist.utils.ListNode;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/3/18 14:28
  * @Description:
  */

@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin600;
 import java.util.ArrayList;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-08-27 16:15
  * @Description :
  * 求出大于或等于 N 的最小回文素数。
@@ -36,6 +36,7 @@ import java.util.ArrayList;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution866 {
+
     public int primePalindrome(int N) {
         while (!isH(N) || !isS(N)) {
             N++;
@@ -94,4 +95,5 @@ public class Solution866 {
         Solution866 solution866 = new Solution866();
         System.out.println(solution866.primePalindrome(9989900));
     }
+
 }

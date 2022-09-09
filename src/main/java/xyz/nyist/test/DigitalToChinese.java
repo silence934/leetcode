@@ -1,11 +1,12 @@
 package xyz.nyist.test;
 
 /**
- * @author fucong
+ * @author silence
  * @date 2020-07-31 15:16
  * @description 数字转中文
  */
 public class DigitalToChinese {
+
     public static void main(String[] args) throws Exception {
         String s = "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999";
         String[] units = new String[]{"", "拾", "百", "千", "万", "亿", "兆", "京", "垓", "秭", "穰", "沟", "涧", "正", "载"};
@@ -23,18 +24,15 @@ public class DigitalToChinese {
                 if (c == '0') {
                     index++;
                     sb.append(units[k]);
-                }
-                else {
+                } else {
                     sb.append(units[k]).append(units[index++]).append(transition(c));
                 }
-            }
-            else {
+            } else {
                 char c = sa[i];
                 if (c == '0') {
                     index++;
                     sb.append(c);
-                }
-                else {
+                } else {
                     sb.append(units[index++]).append(c);
                 }
             }
@@ -53,8 +51,7 @@ public class DigitalToChinese {
                 if (a[i] == '0') {
                     a[i] = '#';
                     continue;
-                }
-                else {
+                } else {
                     b = false;
                 }
             }
@@ -62,12 +59,10 @@ public class DigitalToChinese {
                 if (a[i] == '0') {
                     if (i < a.length - 1 && !isNumber(a[i - 1]) && !isNumber(a[i + 1])) {
                         a[i] = '#';
-                    }
-                    else {
+                    } else {
                         a[i] = transition(a[i]);
                     }
-                }
-                else {
+                } else {
                     a[i] = transition(a[i]);
                 }
             }

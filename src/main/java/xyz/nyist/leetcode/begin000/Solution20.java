@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin000;
 import java.util.LinkedList;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/3/15 15:22
  * @Description:
  */

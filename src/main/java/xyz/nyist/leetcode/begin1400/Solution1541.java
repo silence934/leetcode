@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin1400;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-20 19:28
  * @Description :
  * 给你一个括号字符串 s ，它只包含字符 '(' 和 ')' 。一个括号字符串被称为平衡的当它满足：
@@ -27,6 +27,7 @@ package xyz.nyist.leetcode.begin1400;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution1541 {
+
     public static void main(String[] args) {
         Solution1541 solution1541 = new Solution1541();
         System.out.println(solution1541.minInsertions("))())("));
@@ -41,8 +42,7 @@ public class Solution1541 {
                     res++;
                     need--;
                 }
-            }
-            else {
+            } else {
                 need--;
                 if (need == -1) {
                     res++;
@@ -53,4 +53,5 @@ public class Solution1541 {
 
         return need + res;
     }
+
 }

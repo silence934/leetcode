@@ -1,7 +1,7 @@
 package xyz.nyist.leetcode.begin600;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2021/9/18 14:49
  * @Description:
  */
@@ -13,7 +13,7 @@ public class Solution746 {
         dp[0] = cost[0];
         dp[1] = cost[1];
 
-        
+
         double d = 1;
         System.out.println(d);
 

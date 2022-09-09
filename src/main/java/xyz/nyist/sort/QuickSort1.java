@@ -3,7 +3,7 @@ package xyz.nyist.sort;
 import java.util.Arrays;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/3/11 17:10
  * @Description:
  */

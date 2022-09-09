@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin200;
 import java.util.Random;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/25 13:38
  * @Description:
  */

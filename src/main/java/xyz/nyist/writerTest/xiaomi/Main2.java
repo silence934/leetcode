@@ -3,11 +3,12 @@ package xyz.nyist.writerTest.xiaomi;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-15 18:50
  * @Description :   去除重复字符  aab --> ab
  */
 public class Main2 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         char[] chars = scanner.nextLine().toCharArray();
@@ -19,4 +20,5 @@ public class Main2 {
             }
         }
     }
+
 }

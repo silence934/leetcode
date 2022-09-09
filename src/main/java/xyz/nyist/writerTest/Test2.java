@@ -1,11 +1,12 @@
 package xyz.nyist.writerTest;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-11-08 13:24
  * @Description :
  */
 public class Test2 {
+
     public static void main(String[] args) {
         System.out.println(poorPigs(1000, 20, 60));
     }

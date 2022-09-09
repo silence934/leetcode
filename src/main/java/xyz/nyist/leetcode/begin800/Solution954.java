@@ -3,7 +3,7 @@ package xyz.nyist.leetcode.begin800;
 import java.util.*;
 
 /**
- * @author: fucong
+ * @author: silence
  * @Date: 2022/4/1 18:48
  * @Description:
  */
@@ -25,7 +25,7 @@ public class Solution954 {
             }
             map.put(k * 2, map.getOrDefault(k * 2, 0) - map.get(k));
         }
-        
+
         return true;
     }
 

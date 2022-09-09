@@ -1,11 +1,12 @@
 package xyz.nyist.writerTest.gelinshentong;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-11-08 13:56
  * @Description :
  */
 public class Main2 {
+
     public static void main(String[] args) {
 
     }

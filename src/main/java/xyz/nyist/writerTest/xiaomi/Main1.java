@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-15 18:50
  * @Description :给定一个只包括'(',')','{','}','[',']' 的字符串,判断字符串是否有效。
  * <p>
@@ -18,6 +18,7 @@ import java.util.Stack;
  * 注意空字符串可被认为是有效字符串。
  */
 public class Main1 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String s;
@@ -38,23 +39,21 @@ public class Main1 {
             }
             if (value == '(' || value == '{' || value == '[') {
                 stack.add(value);
-            }
-            else {
+            } else {
                 if (stack.isEmpty()) {
                     return false;
                 }
                 char c = stack.pop();
                 if (value == ')' && c != '(') {
                     return false;
-                }
-                else if (value == '}' && c != '{') {
+                } else if (value == '}' && c != '{') {
                     return false;
-                }
-                else if (value == ']' && c != '[') {
+                } else if (value == ']' && c != '[') {
                     return false;
                 }
             }
         }
         return stack.isEmpty();
     }
+
 }

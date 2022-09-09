@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-09-06 18:12
  * @Description :你将获得 K 个鸡蛋，并可以使用一栋从 1 到 N  共有 N 层楼的建筑。
  * <p>
@@ -59,7 +59,9 @@ public class Solution887 {
     }
 
     private static class Node {
+
         int k;
+
         int n;
 
         public Node(int k, int n) {
@@ -84,6 +86,7 @@ public class Solution887 {
         public int hashCode() {
             return Objects.hash(k, n);
         }
+
     }
 
     public int superEggDrop1(int K, int N) {
@@ -98,4 +101,5 @@ public class Solution887 {
         }
         return m;
     }
+
 }

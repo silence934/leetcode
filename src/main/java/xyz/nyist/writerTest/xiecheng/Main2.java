@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2021-03-04 19:04
  * @Description :
  * 给定一个表达式，求其计算结果。
@@ -122,4 +122,5 @@ public class Main2 {
 
         return res;
     }
+
 }

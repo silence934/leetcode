@@ -4,14 +4,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @Author : fucong
+ * @Author : silence
  * @Date: 2020-08-15 19:30
  * @Description :
  */
 class WorkflowNode {
+
     String nodeId;
+
     int timeoutMillis;
+
     List<WorkflowNode> nextNodes;
+
     boolean initialised;
 
     public static WorkflowNode load(String value) {
@@ -52,6 +56,7 @@ class WorkflowNode {
 
 
 public class Main {
+
     public static void main(String args[]) {
         Scanner cin = new Scanner(System.in);
         while (cin.hasNext()) {
@@ -59,8 +64,7 @@ public class Main {
                 WorkflowNode node = WorkflowNode.load(cin.next());
                 if (node.nextNodes == null || node.nextNodes.isEmpty()) {
                     System.out.println(0);
-                }
-                else {
+                } else {
                     System.out.println(test(node));
                 }
             } catch (Exception e) {
@@ -79,4 +83,5 @@ public class Main {
         }
         return max + node.timeoutMillis;
     }
+
 }
