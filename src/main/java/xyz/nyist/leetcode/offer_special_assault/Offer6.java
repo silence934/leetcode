@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.offer;
+package xyz.nyist.leetcode.offer_special_assault;
 
 import java.util.Arrays;
 
@@ -7,11 +7,11 @@ import java.util.Arrays;
  * @Date: 2022/9/9 16:16
  * @Description: <a href="https://leetcode.cn/problems/kLl5u1/?plan=lcof&plan_progress=zqxc5y6">...</a>
  */
-public class Offer6_2 {
+public class Offer6 {
 
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Offer6_2().twoSum(new int[]{1, 3, 4, 4}, 8)));
+        System.out.println(Arrays.toString(new Offer6().twoSum(new int[]{1, 3, 4, 4}, 8)));
     }
 
 

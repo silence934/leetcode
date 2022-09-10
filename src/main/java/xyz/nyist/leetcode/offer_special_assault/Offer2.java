@@ -1,11 +1,11 @@
-package xyz.nyist.leetcode.offer;
+package xyz.nyist.leetcode.offer_special_assault;
 
 /**
  * @author: silence
  * @Date: 2022/9/8 17:28
  * @Description:
  */
-public class Offer2_2 {
+public class Offer2 {
 
     public String addBinary(String a, String b) {
 

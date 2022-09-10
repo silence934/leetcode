@@ -1,11 +1,11 @@
-package xyz.nyist.leetcode.offer;
+package xyz.nyist.leetcode.offer_special_assault;
 
 /**
  * @author: silence
  * @Date: 2022/9/9 16:16
  * @Description: <a href="https://leetcode.cn/problems/WGki4K/?plan=lcof&plan_progress=zqxc5y6">...</a>
  */
-public class Offer4_2 {
+public class Offer4 {
 
     public int singleNumber(int[] nums) {
 

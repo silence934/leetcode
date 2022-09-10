@@ -1,11 +1,11 @@
-package xyz.nyist.leetcode.offer;
+package xyz.nyist.leetcode.offer_special_assault;
 
 /**
  * @author: silence
  * @Date: 2022/9/8 17:41
  * @Description:
  */
-public class Offer3_2 {
+public class Offer3 {
 
     public int[] countBits(int n) {
         int[] asn = new int[n + 1];

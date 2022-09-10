@@ -1,11 +1,11 @@
-package xyz.nyist.leetcode.offer;
+package xyz.nyist.leetcode.offer_special_assault;
 
 /**
  * @author: silence
  * @Date: 2022/9/8 15:05
  * @Description:
  */
-public class Offer1_2 {
+public class Offer1 {
 
     public int divide(int a, int b) {
         // 考虑被除数为最小值的情况
@@ -97,7 +97,7 @@ public class Offer1_2 {
 
 
     public static void main(String[] args) {
-        System.out.println(new Offer1_2().quickAdd(33, 5));
+        System.out.println(new Offer1().quickAdd(33, 5));
     }
 
 }
