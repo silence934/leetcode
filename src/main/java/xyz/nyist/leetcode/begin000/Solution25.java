@@ -27,6 +27,51 @@ import xyz.nyist.utils.ListNode;
  */
 public class Solution25 {
 
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        int l = 0;
+        ListNode p = head;
+        while (p != null) {
+            p = p.next;
+            l++;
+        }
+
+        ListNode current = head;
+        //遍历的上一个节点
+        ListNode pre = null;
+        //开始反转的前一个节点
+        ListNode pm = null;
+        //开始反转的节点
+        ListNode pn = null;
+        ListNode next = null;
+        for (int i = 0; i < l; i++) {
+            next = current.next;
+            if (i + 1 == k) {
+                head = current;
+            }
+            if (i % k == 0) {
+                if (i + k > l) {
+                    break;
+                }
+                pn = current;
+            } else if ((i + 1) % k == 0) {
+                current.next = pre;
+                if (pm != null) {
+                    pm.next = current;
+                }
+                pn.next = next;
+                pm = pn;
+            } else {
+                current.next = pre;
+            }
+            pre = current;
+            current = next;
+        }
+
+
+        return head;
+    }
+
+
     public ListNode reverseKGroup1(ListNode head, int k) {
 
         ListNode b = head;
@@ -117,6 +162,7 @@ public class Solution25 {
         listNode3.next = listNode4;
         System.out.println(head);
         Solution25 solution25 = new Solution25();
-        System.out.println(solution25.reverseKGroup1(head, 2));
+        System.out.println(solution25.reverseKGroup2(head, 1));
     }
+
 }

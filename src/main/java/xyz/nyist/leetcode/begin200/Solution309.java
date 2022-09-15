@@ -6,6 +6,7 @@ package xyz.nyist.leetcode.begin200;
  * @Date:Create：in 2020/7/10 21:55
  */
 public class Solution309 {
+
     public int maxProfit(int[] prices) {
         if (prices.length < 2) {
             return 0;
@@ -25,8 +26,14 @@ public class Solution309 {
         return dp[0][prices.length - 1];
     }
 
+
+    public int maxProfit1(int[] prices) {
+        return 1;
+    }
+
     public static void main(String[] args) {
         Solution309 solution309 = new Solution309();
         System.out.println(solution309.maxProfit(new int[]{1, 2, 3, 0, 2}));
     }
+
 }

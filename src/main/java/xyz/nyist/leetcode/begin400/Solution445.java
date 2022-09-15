@@ -1,13 +1,13 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin400;
 
 import xyz.nyist.utils.ListNode;
 
 /**
  * @author: silence
- * @Date: 2022/9/14 15:08
+ * @Date: 2022/9/15 14:28
  * @Description:
  */
-public class Offer25 {
+public class Solution445 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         l1 = reverseList(l1);
@@ -57,6 +57,5 @@ public class Offer25 {
 
         return res;
     }
-
 
 }

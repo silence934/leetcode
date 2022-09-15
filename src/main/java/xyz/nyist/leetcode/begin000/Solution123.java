@@ -6,6 +6,7 @@ package xyz.nyist.leetcode.begin000;
  * @Date:Create：in 2020/7/11 18:06
  */
 public class Solution123 {
+
     public int maxProfit(int[] prices) {
         if (prices.length < 2) {
             return 0;
@@ -86,6 +87,29 @@ public class Solution123 {
         }
 
         return max;
+    }
+
+
+    public int maxProfit2(int[] prices) {
+        //天数  是否有股票  买入次数
+        int[][][] dp = new int[prices.length][2][3];
+        dp[0][0][0] = 0;
+        dp[0][0][1] = Integer.MIN_VALUE / 2;
+        dp[0][0][2] = Integer.MIN_VALUE / 2;
+        dp[0][1][0] = Integer.MIN_VALUE / 2;
+        dp[0][1][1] = -prices[0];
+        dp[0][1][2] = Integer.MIN_VALUE / 2;
+
+        for (int i = 1; i < prices.length; i++) {
+            dp[i][0][0] = 0;
+            dp[i][0][1] = Math.max(dp[i - 1][0][1], dp[i - 1][1][1] + prices[i]);
+            dp[i][0][2] = Math.max(dp[i - 1][0][2], dp[i - 1][1][2] + prices[i]);
+            dp[i][1][0] = Integer.MIN_VALUE / 2;
+            dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i]);
+            dp[i][1][2] = Math.max(dp[i - 1][1][2], dp[i - 1][0][1] - prices[i]);
+        }
+
+        return Math.max(dp[prices.length - 1][0][0], Math.max(dp[prices.length - 1][0][1], dp[prices.length - 1][0][2]));
     }
 
 }

@@ -6,6 +6,7 @@ package xyz.nyist.leetcode.begin000;
  * @Date:Create：in 2020/7/14 17:57
  */
 public class Solution188 {
+
     public int maxProfit(int k, int[] prices) {
         if (prices.length < 2) {
             return 0;
@@ -56,7 +57,8 @@ public class Solution188 {
     public static void main(String[] args) {
         Solution188 solution188 = new Solution188();
         System.out.println(solution188.maxProfit(2, new int[]{3, 2, 6, 5, 0, 3}));
-        System.out.println(solution188.maxProfit1(2, new int[]{3, 2, 6, 5, 0, 3}));
+        System.out.println(solution188.maxProfit1(4, new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0}));
+        System.out.println(solution188.maxProfit2(4, new int[]{1, 2, 4, 2, 5, 7, 2, 4, 9, 0}));
     }
 
 
@@ -98,4 +100,44 @@ public class Solution188 {
 
         return max;
     }
+
+    public int maxProfit2(int k, int[] prices) {
+        if (k == 0) {
+            return 0;
+        }
+        //天数  是否有股票  买入次数
+        int[][][] dp = new int[prices.length][2][k + 1];
+
+        dp[0][0][0] = 0;
+        dp[0][0][1] = Integer.MIN_VALUE / 2;
+        dp[0][1][0] = Integer.MIN_VALUE / 2;
+        dp[0][1][1] = -prices[0];
+
+        for (int i = 2; i <= k; i++) {
+            dp[0][0][i] = Integer.MIN_VALUE / 2;
+            dp[0][1][i] = Integer.MIN_VALUE / 2;
+        }
+
+        for (int i = 1; i < prices.length; i++) {
+            dp[i][0][0] = 0;
+            dp[i][0][1] = Math.max(dp[i - 1][0][1], dp[i - 1][1][1] + prices[i]);
+            dp[i][1][0] = Integer.MIN_VALUE / 2;
+            dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i]);
+
+            for (int j = 2; j <= k; j++) {
+                dp[i][0][j] = Math.max(dp[i - 1][0][j], dp[i - 1][1][j] + prices[i]);
+                dp[i][1][j] = Math.max(dp[i - 1][1][j], dp[i - 1][0][j - 1] - prices[i]);
+            }
+
+        }
+
+
+        int max = 0;
+        for (int i = 0; i <= k; i++) {
+            max = Math.max(max, dp[prices.length - 1][0][i]);
+        }
+
+        return max;
+    }
+
 }

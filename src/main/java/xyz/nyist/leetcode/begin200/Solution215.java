@@ -1,29 +1,58 @@
 package xyz.nyist.leetcode.begin200;
 
-import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @Author: silence
- * @Description: 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
- * <p>
- * 示例 1:
- * <p>
- * 输入: [3,2,1,5,6,4] 和 k = 2
- * 输出: 5
- * <p>
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/kth-largest-element-in-an-array
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * @Description:
  */
 public class Solution215 {
+
+
+    Random random = new Random();
+
     public int findKthLargest(int[] nums, int k) {
-        Arrays.sort(nums);
-        return nums[nums.length - k];
+        int p;
+        int left = -1, right;
+        int limitL = 0, limitR = nums.length - 1;
+
+        int index = nums.length - k;
+        while (left != index) {
+            p = left = limitL;
+            right = limitR;
+            int i = random.nextInt(right - left + 1) + left;
+            int t = nums[i];
+            nums[i] = nums[left];
+            nums[left] = t;
+
+            int w = nums[p];
+            while (left < right) {
+                while (left < right && w <= nums[right]) {
+                    right--;
+                }
+                nums[left] = nums[right];
+                while (left < right && w >= nums[left]) {
+                    left++;
+                }
+                nums[right] = nums[left];
+            }
+            nums[right] = w;
+
+            if (right > index) {
+                limitR = right - 1;
+            } else {
+                limitL = right + 1;
+            }
+        }
+
+
+        return nums[left];
     }
 
     public static void main(String[] args) {
         Solution215 solution209 = new Solution215();
 
-        System.out.println(solution209.findKthLargest(new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6}, 4));
+        System.out.println(solution209.findKthLargest(new int[]{1}, 1));
     }
+
 }

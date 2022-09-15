@@ -18,11 +18,12 @@ package xyz.nyist.leetcode.begin000;
  *      随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3
  * <p>
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii
+ * 链接：<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii">...</a>
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @Date:Create：in 2020/7/11 17:52
  */
 public class Solution122 {
+
     public int maxProfit(int[] prices) {
         int res = 0;
         for (int i = 1; i < prices.length; i++) {
@@ -65,4 +66,19 @@ public class Solution122 {
 
         return p1;
     }
+
+
+    public int maxProfit3(int[] prices) {
+        //第几天 手上是否有股票
+        int[][] dp = new int[prices.length][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            dp[i][0] = Math.max(dp[i - 1][1] + prices[i], dp[i - 1][0]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+        }
+
+        return Math.max(dp[prices.length - 1][0], dp[prices.length - 1][1]);
+    }
+
 }

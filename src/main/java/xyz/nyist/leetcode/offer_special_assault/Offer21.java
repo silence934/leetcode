@@ -15,8 +15,24 @@ public class Offer21 {
 
     }
 
+    private int n;
+
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        return null;
+        this.n = n;
+        return removeNthFromEnd(head);
+    }
+
+    private ListNode removeNthFromEnd(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        head.next = removeNthFromEnd(head.next);
+
+        if (--n == 0) {
+            return head.next;
+        }
+
+        return head;
     }
 
 }
