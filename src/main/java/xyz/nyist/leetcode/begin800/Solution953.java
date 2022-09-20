@@ -1,11 +1,11 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin800;
 
 /**
  * @author: silence
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer34 {
+public class Solution953 {
 
     public boolean isAlienSorted(String[] words, String order) {
         int[] map = new int[128];

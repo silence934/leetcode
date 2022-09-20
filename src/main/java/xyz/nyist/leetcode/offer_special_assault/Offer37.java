@@ -6,4 +6,9 @@ package xyz.nyist.leetcode.offer_special_assault;
  * @Description:
  */
 public class Offer37 {
+
+    public int[] asteroidCollision(int[] asteroids) {
+        return null;
+    }
+
 }

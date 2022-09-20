@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin400;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer35 {
+public class Solution539 {
 
     public int findMinDifference(List<String> timePoints) {
         if (timePoints.size() >= 60 * 24) {

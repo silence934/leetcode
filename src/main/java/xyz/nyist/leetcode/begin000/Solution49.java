@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin000;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer33 {
+public class Solution49 {
 
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> listMap = new HashMap<>();

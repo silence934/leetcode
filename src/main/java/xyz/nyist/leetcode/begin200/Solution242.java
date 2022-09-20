@@ -1,14 +1,14 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin200;
 
 /**
  * @author: silence
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer32 {
+public class Solution242 {
 
     public boolean isAnagram(String s, String t) {
-        if (s.equals(t) || s.length() != t.length()) {
+        if (s.length() != t.length()) {
             return false;
         }
         int[] map = new int[128];
