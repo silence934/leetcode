@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin800;
 
 import xyz.nyist.utils.TreeNode;
 
@@ -9,14 +9,14 @@ import java.util.LinkedList;
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer43 {
+public class Solution919 {
 
 
     TreeNode root;
 
     LinkedList<TreeNode> list;
 
-    public Offer43(TreeNode root) {
+    public Solution919(TreeNode root) {
         this.root = root;
         this.list = new LinkedList<>();
         list.addLast(root);

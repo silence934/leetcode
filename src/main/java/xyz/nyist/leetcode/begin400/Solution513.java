@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin400;
 
 import xyz.nyist.utils.TreeNode;
 
@@ -7,7 +7,7 @@ import xyz.nyist.utils.TreeNode;
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer45 {
+public class Solution513 {
 
     public int findBottomLeftValue(TreeNode root) {
         return findBottomLeftValue(root, 0)[1];

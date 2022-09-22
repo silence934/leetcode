@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.offer_special_assault;
+package xyz.nyist.leetcode.begin400;
 
 import xyz.nyist.utils.TreeNode;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * @Date: 2022/9/14 15:08
  * @Description:
  */
-public class Offer44 {
+public class Solution515 {
 
     public List<Integer> largestValues(TreeNode root) {
         if (root == null) {
