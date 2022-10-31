@@ -171,4 +171,52 @@ public class Test {
         return s.substring(0, i);
     }
 
+
+    public int[] missingTwo(int[] nums) {
+        boolean b1 = false, b2 = false;
+
+
+        for (int num : nums) {
+            num = Math.abs(num);
+            if (num == 1) {
+                b1 = true;
+            } else if (num == nums.length + 2) {
+                b2 = true;
+            } else {
+                nums[num - 2] = -nums[num - 2];
+            }
+        }
+
+
+        if (!b1 && !b2) {
+            return new int[]{1, nums.length + 2};
+        } else if (!b1) {
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] > 0) {
+                    return new int[]{1, i + 2};
+                }
+            }
+        } else if (!b2) {
+
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] > 0) {
+                    return new int[]{i + 2, nums.length + 2};
+                }
+            }
+
+        } else {
+            int t = -1;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] > 0) {
+                    if (t > 0) {
+                        return new int[]{t, i + 2};
+                    }
+                    t = i + 2;
+                }
+            }
+        }
+
+        return null;
+    }
+
 }
