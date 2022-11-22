@@ -11,7 +11,6 @@ public class QuickSort {
 
 
     private static void test(int[] nums, int low, int high) {
-
         int h = high, l = low;
         if (low >= high) {
             return;

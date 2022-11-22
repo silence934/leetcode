@@ -53,4 +53,46 @@ public class Solution31 {
         }
     }
 
+
+    public void nextPermutation1(int[] nums) {
+
+        for (int i = nums.length - 2; i > 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+
+                int min = nums[i + 1];
+                int k = i + 1;
+                for (int j = i + 2; j < nums.length; j++) {
+                    if (nums[i] < nums[j] && nums[j] <= min) {
+                        min = nums[j];
+                        k = j;
+                    }
+                }
+                int t = nums[k];
+                nums[k] = nums[i];
+                nums[i] = t;
+
+                int l = i + 1, r = nums.length - 1;
+                System.out.println(l + " " + r);
+                while (l > r) {
+                    t = nums[l];
+                    nums[l] = nums[r];
+                    nums[r] = t;
+                    l++;
+                    r--;
+                }
+                return;
+
+            }
+        }
+
+        int l = 0, r = nums.length - 1;
+        while (l > r) {
+            int t = nums[l];
+            nums[l] = nums[r];
+            nums[r] = t;
+            l++;
+            r--;
+        }
+    }
+
 }
