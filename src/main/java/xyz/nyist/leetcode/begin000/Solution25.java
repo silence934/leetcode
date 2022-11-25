@@ -27,6 +27,37 @@ import xyz.nyist.utils.ListNode;
  */
 public class Solution25 {
 
+
+    public ListNode reverseKGroup3(ListNode head, int k) {
+        ListNode h = head;
+        for (int i = 1; i < k; i++) {
+            if (h == null) {
+                return head;
+            }
+            h = h.next;
+        }
+        if (h == null) {
+            return head;
+        }
+        ListNode next = h.next;
+        h.next = null;
+
+        ListNode ans = reverse3(head);
+        head.next = reverseKGroup3(next, k);
+
+        return ans;
+    }
+
+    public ListNode reverse3(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode next = head.next;
+        ListNode ans = reverse3(next);
+        next.next = head;
+        return ans;
+    }
+
     public ListNode reverseKGroup2(ListNode head, int k) {
         int l = 0;
         ListNode p = head;

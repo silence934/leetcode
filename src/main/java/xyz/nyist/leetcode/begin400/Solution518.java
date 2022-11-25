@@ -92,4 +92,21 @@ public class Solution518 {
         return dp[amount];
     }
 
+    public int change3(int amount, int[] coins) {
+        int[][] dp = new int[coins.length][amount + 1];
+
+        for (int i = 0; i < coins.length; i++) {
+            for (int j = 0; j < amount + 1; j++) {
+                if (j == 0) {
+                    dp[i][j] = 1;
+                } else if (coins[i] > j) {
+                    dp[i][j] = i > 0 ? dp[i - 1][j] : 0;
+                } else {
+                    dp[i][j] = i > 0 ? dp[i - 1][j] + dp[i][j - coins[i]] : dp[i][j - coins[i]];
+                }
+            }
+        }
+
+        return dp[coins.length - 1][amount];
+    }
 }
