@@ -10,13 +10,15 @@ import java.util.stream.Collectors;
  */
 public class Fucong {
     public static void main(String[] args) {
-        System.out.println('0' - 1);
         System.out.println("12132131213121: " + new Fucong().allPossibilities("12132131213121"));
         System.out.println("121321312131261: " + new Fucong().allPossibilities("121321312131261"));
+        System.out.println("1213213121312611: " + new Fucong().allPossibilities("1213213121312611"));
         System.out.println("60032131211261: " + new Fucong().allPossibilities("60032131211261"));
         System.out.println("60032131260061: " + new Fucong().allPossibilities("60032131260061"));
-        System.out.println("6003213126006133: " + new Fucong().allPossibilities("6003213126006133"));
-        System.out.println("6003213126006133: " + new Fucong().allPossibilities("123456789"));
+        System.out.println("600321312600133: " + new Fucong().allPossibilities("600321312600133"));
+        System.out.println("123456789: " + new Fucong().allPossibilities("123456789"));
+        System.out.println("600000000000001: " + new Fucong().allPossibilities("600000000000001"));
+        System.out.println("60033126600133: " + new Fucong().allPossibilities("60033126600133"));
     }
 
     public List<String> allPossibilities(String str) {
@@ -29,43 +31,32 @@ public class Fucong {
         if (cache.containsKey(key)) {
             return cache.get(key);
         }
-        if (surplus == 0) {
-            if (index != str.length() &&
-                    str.length() - index < 3 ||
-                    (str.length() - index < 4
-                            && (str.charAt(index) < '6') || str.substring(index).equals("600"))) {
-                //※全部添加完毕 剩余的字母 满足 长度小于3 或者 (长度小于4  首字母小于6 或者剩余字符串等于600)
-                return Collections.singletonList(new Status(str.substring(index), 0));
-            }
-            return new ArrayList<>();
-        }
-        if (str.length() - index > 3 * (surplus + 1)) {
-            return new ArrayList<>();
-        }
 
         List<Status> ans = new ArrayList<>();
-        int t = str.charAt(index) > '5' ? 3 : 4;
-        for (int i = 1; i < t; i++) {
-            if (index + i >= str.length()) {
-                break;
+
+        if (surplus == 0) {
+            if (index != str.length() && isValidate(str.substring(index))) {
+                //※全部添加完毕 剩余的字母组成的数字满足条件
+                ans = Collections.singletonList(new Status(str.substring(index), 0));
             }
-            String s = str.substring(index, index + i);
-            List<Status> list = find(str, index + i, surplus - 1, cache);
-            for (Status entity : list) {
-                if (entity.number == surplus - 1) {
-                    ans.add(new Status(s + "*" + entity.str, entity.number + 1));
+        } else {
+            int offset = 1;
+            while (index + offset < str.length()) {
+                String s = str.substring(index, index + offset);
+                if (!isValidate(s)) {
+                    break;
                 }
+
+                List<Status> list = find(str, index + offset, surplus - 1, cache);
+                for (Status entity : list) {
+                    if (entity.number == surplus - 1) {
+                        ans.add(new Status(s + "*" + entity.str, entity.number + 1));
+                    }
+                }
+                offset++;
             }
         }
 
-        if (str.startsWith("600", index)) {
-            List<Status> list = find(str, index + 3, surplus - 1, cache);
-            for (Status entity : list) {
-                if (entity.number == surplus - 1) {
-                    ans.add(new Status("600" + "*" + entity.str, entity.number + 1));
-                }
-            }
-        }
         cache.put(key, ans);
         return ans;
     }
@@ -80,5 +71,16 @@ public class Fucong {
         }
     }
 
+    private boolean isValidate(String str) {
+        if (str.length() == 0) {
+            return false;
+        }
+        int i = 0;
+        while (i < str.length() && str.charAt(i) == '0') {
+            i++;
+        }
+        return i == str.length()
+                || (str.length() - i < 4 && Integer.parseInt(str.substring(i)) <= 600);
+    }
 
 }
