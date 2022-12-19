@@ -1,5 +1,10 @@
 package xyz.nyist.leetcode.begin1800;
 
+/**
+ * @author: silence
+ * @Date: 2022/12/17 20:16
+ * @Description:
+ */
 public class Solution1945 {
     public int getLucky(String s, int k) {
         StringBuilder sb = new StringBuilder();
