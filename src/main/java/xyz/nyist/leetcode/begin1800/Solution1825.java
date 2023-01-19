@@ -1,7 +1,6 @@
 package xyz.nyist.leetcode.begin1800;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * @author: silence
@@ -10,114 +9,155 @@ import java.util.PriorityQueue;
  */
 public class Solution1825 {
 
-    //["MKAverage","addElement","addElement","calculateMKAverage","addElement","addElement","calculateMKAverage","addElement","addElement","calculateMKAverage","addElement"]
-//[[3,1],[17612],[74607],[],[8272],[33433],[],[15456],[64938],[],[99741]]
-    public static void main(String[] args) {
-        Solution1825 solution1825 = new Solution1825(3, 1);
-        solution1825.addElement(17612);
-        solution1825.addElement(74607);
-        solution1825.addElement(8272);
-        solution1825.addElement(33433);
-        solution1825.addElement(15456);
-        solution1825.addElement(64938);
-        int i = solution1825.calculateMKAverage();
-        solution1825.addElement(99741);
-        System.out.println(i);
-    }
-
     int m, k;
-
-    PriorityQueue<Integer> queue1;
-
-    PriorityQueue<Integer> queue2;
-
-    PriorityQueue<Integer> queue3;
-
-    PriorityQueue<Integer> queue4;
-
+    TreeMap<Integer, Integer> preK;
+    TreeMap<Integer, Integer> sufK;
+    TreeMap<Integer, Integer> mid;
     LinkedList<Integer> list;
-
     private int sum;
-
+    private int index;
 
     public Solution1825(int m, int k) {
         this.m = m;
         this.k = k;
         this.sum = 0;
-        this.queue1 = new PriorityQueue<>();
-        this.queue2 = new PriorityQueue<>((a, b) -> b - a);
-        this.queue3 = new PriorityQueue<>();
-        this.queue4 = new PriorityQueue<>((a, b) -> b - a);
+        this.preK = new TreeMap<>((a, b) -> b - a);
+        this.sufK = new TreeMap<>();
+        this.mid = new TreeMap<>();
         this.list = new LinkedList<>();
+        this.index = 0;
     }
 
+
     public void addElement(int num) {
-        if (list.size() < m) {
-            addElement1(num);
-        } else {
-            Integer first = list.removeFirst();
-            if (queue3.remove(first)) {
-                queue4.remove(first);
-                sum -= first;
-            } else {
-                if (queue1.remove(first)) {
-                    if (!queue3.isEmpty()) {
-                        Integer poll = queue4.poll();
-                        queue3.remove(poll);
-                        queue1.offer(poll);
-                        sum -= poll;
+        index++;
+        this.list.addLast(num);
+        if (index == m) {
+            ArrayList<Integer> array = new ArrayList<>(this.list);
+            Collections.sort(array);
+            for (int i = 0; i < k; i++) {
+                plus(preK, array.get(i));
+            }
+            for (int i = k; i < array.size() - k; i++) {
+                plus(mid, array.get(i));
+                sum += array.get(i);
+            }
+            for (int i = array.size() - k; i < array.size(); i++) {
+                plus(sufK, array.get(i));
+            }
+        } else if (index > m) {
+            plus(mid, num);
+            sum += num;
+            Integer remove = list.removeFirst();
+            if (preK.containsKey(remove)) {
+                less(preK, remove);
+                Map.Entry<Integer, Integer> min = mid.firstEntry();
+                sum -= min.getKey();
+                less(mid, min.getKey());
+                plus(preK, min.getKey());
+
+                while (true) {
+                    Map.Entry<Integer, Integer> midLast = mid.lastEntry();
+                    Map.Entry<Integer, Integer> sufFirst = sufK.firstEntry();
+                    if (midLast.getKey() > sufFirst.getKey()) {
+                        less(mid, midLast.getKey());
+                        sum -= midLast.getKey();
+                        plus(sufK, midLast.getKey());
+                        less(sufK, sufFirst.getKey());
+                        plus(mid, sufFirst.getKey());
+                        sum += sufFirst.getKey();
+                    } else {
+                        break;
                     }
-                } else if (queue2.remove(first)) {
-                    if (!queue3.isEmpty()) {
-                        Integer poll = queue3.poll();
-                        queue4.remove(poll);
-                        queue2.offer(poll);
-                        sum -= poll;
+                }
+
+            } else if (mid.containsKey(remove)) {
+                less(mid, remove);
+                sum -= remove;
+
+
+                while (true) {
+                    Map.Entry<Integer, Integer> midLast = mid.lastEntry();
+                    Map.Entry<Integer, Integer> sufFirst = sufK.firstEntry();
+                    if (midLast.getKey() > sufFirst.getKey()) {
+                        less(mid, midLast.getKey());
+                        sum -= midLast.getKey();
+                        plus(sufK, midLast.getKey());
+                        less(sufK, sufFirst.getKey());
+                        plus(mid, sufFirst.getKey());
+                        sum += sufFirst.getKey();
+                    } else {
+                        break;
+                    }
+                }
+
+
+                while (true) {
+                    Map.Entry<Integer, Integer> preLast = preK.lastEntry();
+                    Map.Entry<Integer, Integer> midFirst = mid.firstEntry();
+                    if (midFirst.getKey() < preLast.getKey()) {
+                        less(mid, midFirst.getKey());
+                        sum -= midFirst.getKey();
+                        plus(preK, midFirst.getKey());
+                        less(preK, preLast.getKey());
+                        plus(mid, preLast.getKey());
+                        sum += preLast.getKey();
+                    } else {
+                        break;
+                    }
+                }
+
+
+            } else if (sufK.containsKey(remove)) {
+                less(sufK, remove);
+                Map.Entry<Integer, Integer> max = mid.lastEntry();
+                sum -= max.getKey();
+                less(mid, max.getKey());
+                plus(sufK, max.getKey());
+
+                while (true) {
+                    Map.Entry<Integer, Integer> preLast = preK.lastEntry();
+                    Map.Entry<Integer, Integer> midFirst = mid.firstEntry();
+                    if (midFirst.getKey() < preLast.getKey()) {
+                        less(mid, midFirst.getKey());
+                        sum -= midFirst.getKey();
+                        plus(preK, midFirst.getKey());
+                        less(preK, preLast.getKey());
+                        plus(mid, preLast.getKey());
+                        sum += preLast.getKey();
+                    } else {
+                        break;
                     }
                 }
             }
 
-            addElement1(num);
         }
+
+        System.out.println(index);
+        System.out.println(preK);
+        System.out.println(mid);
+        System.out.println(sufK);
+        System.out.println();
+
     }
 
-    public void addElement1(int num) {
-        list.addLast(num);
-        if (queue1.size() < k) {
-            queue1.offer(num);
-            return;
-        } else if (queue2.size() < k) {
-            if (queue1.peek() > num) {
-                queue2.offer(queue1.poll());
-                queue1.offer(num);
-            } else {
-                queue2.offer(num);
-            }
-            return;
+
+    private void less(Map<Integer, Integer> map, Integer key) {
+        if (map.get(key) == 1) {
+            map.remove(key);
+        } else {
+            map.put(key, map.get(key) - 1);
         }
 
-        if (num < queue1.peek()) {
-            Integer poll = queue1.poll();
-            queue1.offer(num);
-            queue3.offer(poll);
-            queue4.offer(poll);
-            sum += poll;
-        } else if (num > queue2.peek()) {
-            Integer poll = queue2.poll();
-            queue2.offer(num);
-            queue3.offer(poll);
-            queue4.offer(poll);
-            sum += poll;
-        } else {
-            queue3.offer(num);
-            queue4.offer(num);
-            sum += num;
-        }
+    }
+
+    private void plus(Map<Integer, Integer> map, Integer key) {
+        map.compute(key, (k, oldValue) -> oldValue == null ? 1 : oldValue + 1);
     }
 
 
     public int calculateMKAverage() {
-        if (m > list.size()) {
+        if (m > index) {
             return -1;
         }
         return sum / (m - k - k);
