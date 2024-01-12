@@ -1,4 +1,4 @@
-package xyz.nyist.leetcode.begin1800;
+package xyz.nyist.leetcode.begin2000;
 
 import java.util.ArrayList;
 import java.util.HashSet;
