@@ -51,6 +51,11 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.84.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-test-framework</artifactId>
+            <version>9.8.0</version>
+        </dependency>
     </dependencies>
 
 </project>
